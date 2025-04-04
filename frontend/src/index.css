@@ -1,0 +1,530 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+*{
+    font-family: "Alice", serif;
+    
+}
+
+html{
+    background: rgb(21,21,21);
+}
+
+
+/* ------------------- */
+.outer-border {
+    position: relative;
+    border: none;
+    width: 60%;
+    height: 60vh;
+    margin-left: 20%;
+    overflow: hidden;
+}
+
+.container {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    border: none;
+    top: 100px;
+    left: 0; 
+    cursor: grab;
+}
+
+.container:active {
+    cursor: grabbing;
+}
+
+.border-handle {
+    position: absolute;
+    background: transparent;
+}
+
+/* Top border */
+.top { top: 0px; left: 0; width: 100%; height: 1px; cursor: ns-resize; background-color: rgb(255, 255, 255);}
+.top-active { top: 0px; left: 0; width: 100%; height: 1px; cursor: ns-resize; background-color: transparent;}
+
+/* Bottom border */
+.bottom { bottom: 0px; left: 0; width: 100%; height: 1px; cursor: ns-resize; background-color: rgb(255, 255, 255);}
+.bottom-active { bottom: 0px; left: 0; width: 100%; height: 1px; cursor: ns-resize; background-color: transparent;}
+
+/* Left border */
+.left { left: 0px; top: 0; height: 100%; width: 1px; cursor: ew-resize; background-color: rgb(255, 255, 255);}
+.left-active { left: 0px; top: 0; height: 100%; width: 1px; cursor: ew-resize; background-color: transparent;}
+
+/* Right border */
+.right { right: 0px; top: 0; height: 100%; width: 1px; cursor: ew-resize; background-color: rgb(255, 255, 255);}
+.right-active { right: 0px; top: 0; height: 100%; width: 1px; cursor: ew-resize; background-color: transparent;}
+
+.input--draggable--element{
+    width:100%;
+    height:100%;
+    outline:none;
+    border:none;
+    color:white;
+    font-size: 2rem;
+    background-color: transparent;
+ }
+
+ .image--tag--meme--active{
+    transition: 1s;
+    opacity: 0.2;
+ }
+
+ .image--tag--meme--deactive{
+    transition:1s;
+    opacity:1;
+ }
+
+ .text-area--tag{
+       width:100%;
+       font-size:2rem;
+       outline:none;
+       border:none;
+       text-wrap: nowrap;
+ }
+
+.choose--tag--pic{
+    font-family: "Alice", italic;
+   
+}
+
+.menu--tag{
+    font-family: "Alice", italic;
+    font-style:italic;
+    color:white;
+
+
+}
+
+.font--profile--icon{
+     color:white;
+     font-size: 20px;;
+}
+
+.overlay--poppup--display{
+    border:none;
+    backdrop-filter: blur(20px);
+    position:fixed;
+    left:0;
+    right:0;
+    width:100%;
+    bottom:0;
+    z-index:1;
+    height:0;
+    margin:0;
+}
+.active{
+    transition:1s;
+    bottom:0;
+    width:100%;
+    height:100%;
+}
+.deactive{
+    transition:1s;
+    height:0;
+}
+
+/* 
+.register---display---tag:hover{
+    transition: 1s;
+    border:2px solid rgba(112, 124, 129, 0.345);
+} */
+
+
+@media only screen and (max-width : 600px){
+
+    html{
+
+        background: rgb(21,21,21);
+    }
+    
+    .overlay--display--register{
+        height:100%;
+        position:fixed;
+        z-index:1;
+        top:0;
+        left:0;
+        backdrop-filter: blur(20px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        right:0;
+        bottom:0;
+    }
+    
+    .register---display---tag{
+        width:96%; 
+        height:80%;
+        backdrop-filter: blur(15px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border:2px solid rgba(112, 124, 129, 0);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.611), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }
+
+    .input--element--outer--div--tag{
+       border:2px solid rgb(87, 87, 87);
+       padding:20px;
+    }
+    .input--element{ 
+    width:100%;
+   
+   
+    font-size: 1.2rem;
+    color:white;
+    outline:none;
+  
+    background-color: transparent;
+}
+.input--element--button{
+    width:20%;
+    margin-top:5%;
+    height:65px;
+    font-size: 1rem;
+    color:white;
+    outline:none;
+    cursor:pointer;
+    border:none;
+    border-radius:10px;
+    background-color: rgba(7, 7, 7, 0.479);
+}
+
+.input--element--button:hover{
+    transition: 1s;
+    
+    background-color: rgba(10, 10, 10, 0.786);
+}
+         
+
+}
+@media only screen and (max-width: 768px){
+
+    
+    .logo--tag, .choose--tag--pic{
+        font-size:16px;
+ }
+ 
+ 
+ html{
+
+    background: rgb(21,21,21);
+}
+
+
+ /* .text--display{
+     opacity: 0;
+ } */
+ .overlay--poppup--display{
+     border:none;   
+     backdrop-filter: blur(20px);
+     position:fixed;
+     left:0;
+     right:0;
+     width:100%;
+     bottom:0;
+     z-index:1;
+     height:0;
+     top:10;
+ }
+ .active{
+     transition:1s;
+     bottom:0;
+     width:100%;
+     height:100%;
+ }
+ .deactive{
+     transition:1s;
+     height:0;
+ 
+}
+  .input--element--button{
+      width:40%;
+      
+      height:60px;
+      font-size: 1rem;
+      color:white;
+      outline:none;
+      justify-content: center;
+      border-radius:10px;
+      background-color: rgba(60, 21, 199, 0.28);
+  }
+
+  .input--element--button:hover{
+      transition: 1s;
+      background-color: rgba(60, 21, 199, 0.497);
+  }
+
+  .overlay--display--register{
+    height:100%;
+    position:fixed;
+    z-index:1;
+    top:0;
+    left:0;
+    backdrop-filter: blur(20px);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    right:0;
+    bottom:0;
+}
+
+.register---display---tag{
+    width:96%; 
+    height:80%;
+    backdrop-filter: blur(15px);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border:2px solid rgba(112, 124, 129, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.611), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+  .input--element--outer--div--tag{
+    width:80%;
+     border:2px solid rgb(87, 87, 87);
+      padding:20px;
+}
+.input--element{ 
+    width:100%;
+   
+   
+    font-size: 1.2rem;
+    color:white;
+    outline:none;
+  
+    background-color: transparent;
+}
+.input--element--button{
+    width:20%;
+    margin-top:5%;
+    height:65px;
+    font-size: 1rem;
+    color:white;
+    outline:none;
+    cursor:pointer;
+    border:none;
+    border-radius:10px;
+    background-color: rgba(7, 7, 7, 0.479);
+}
+
+.input--element--button:hover{
+    transition: 1s;
+    
+    background-color: rgba(10, 10, 10, 0.786);
+}
+}
+
+@media only screen and (min-width : 768px){
+
+    
+    html{
+
+        background: rgb(21,21,21);
+    }
+
+    .overlay--display--register{
+        height:100%;
+        position:fixed;
+        z-index:1;
+        top:0;
+        left:0;
+        backdrop-filter: blur(20px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        right:0;
+        bottom:0;
+    }
+    
+    .register---display---tag{
+        width:96%; 
+        height:80%;
+        backdrop-filter: blur(15px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border:2px solid rgba(112, 124, 129, 0);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.611), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }
+      
+ .input--element--outer--div--tag{
+  border:2px solid rgb(87, 87, 87);
+  padding:20px;
+}
+.input--element{ 
+    width:100%;
+   
+   
+    font-size: 1.2rem;
+    color:white;
+    outline:none;
+  
+    background-color: transparent;
+}
+.input--element--button{
+    width:20%;
+    margin-top:5%;
+    height:65px;
+    font-size: 1rem;
+    color:white;
+    outline:none;
+    cursor:pointer;
+    border:none;
+    border-radius:10px;
+    background-color: rgba(7, 7, 7, 0.479);
+}
+
+.input--element--button:hover{
+    transition: 1s;
+    
+    background-color: rgba(10, 10, 10, 0.786);
+}
+}
+
+@media only screen and (min-width : 992px){
+
+   
+    html{
+
+        background: rgb(21,21,21);
+    }
+
+    .overlay--display--register{
+        height:100%;
+        position:fixed;
+        z-index:1;
+        top:0;
+        left:0;
+        backdrop-filter: blur(20px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        right:0;
+        bottom:0;
+    }
+    
+    .register---display---tag{
+        width:60%; 
+        height:80%;
+        backdrop-filter: blur(15px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border:2px solid rgba(112, 124, 129, 0);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.611), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }
+    .input--element--outer--div--tag{
+
+        width:50%;
+  border:2px solid rgb(87, 87, 87);
+  padding:20px;
+} 
+
+.input--element{ 
+    width:100%;
+   
+   
+    font-size: 1.2rem;
+    color:white;
+    outline:none;
+  
+    background-color: transparent;
+}
+.input--element--button{
+    width:20%;
+    margin-top:5%;
+    height:65px;
+    font-size: 1rem;
+    color:white;
+    outline:none;
+    cursor:pointer;
+    border:none;
+    border-radius:10px;
+    background-color: rgba(7, 7, 7, 0.479);
+}
+
+.input--element--button:hover{
+    transition: 1s;
+    
+    background-color: rgba(10, 10, 10, 0.786);
+}
+}
+@media only screen and ( min-width: 1220px){
+
+  
+    html{
+
+        background: rgb(21,21,21);
+    }
+
+    .overlay--display--register{
+        height:100%;
+        position:fixed;
+        z-index:1;
+        top:0;
+        left:0;
+        backdrop-filter: blur(20px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        right:0;
+        bottom:0;
+    }
+    
+    .register---display---tag{
+        width:60%; 
+        height:80%;
+        backdrop-filter: blur(15px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border:2px solid rgba(112, 124, 129, 0);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.611), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }
+    .input--element--outer--div--tag{
+     border:2px solid rgb(87, 87, 87);
+      padding:20px;
+     }
+    
+     .input--element{ 
+    width:100%;
+   
+   
+    font-size: 1.2rem;
+    color:white;
+    outline:none;
+  
+    background-color: transparent;
+}
+.input--element--button{
+    width:20%;
+    margin-top:5%;
+    height:65px;
+    font-size: 1rem;
+    color:white;
+    outline:none;
+    cursor:pointer;
+    border:none;
+    border-radius:10px;
+    background-color: rgba(7, 7, 7, 0.479);
+}
+
+.input--element--button:hover{
+    transition: 1s;
+    
+    background-color: rgba(10, 10, 10, 0.786);
+}
+}
+
