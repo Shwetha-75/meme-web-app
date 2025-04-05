@@ -1,8 +1,8 @@
 import React from 'react'
-import { Status } from '../App';
+// import { Status } from '../App';
 export default function Register() {
 
-  const {status}=React.useContext(Status)
+  // const {status}=React.useContext(Status)
 
   return (
     <div className={`overlay--display--register `}>
