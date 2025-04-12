@@ -157,7 +157,7 @@ html{
     
     .register---display---tag{
         width:96%; 
-        height:80%;
+        height:100%;
         backdrop-filter: blur(15px);
         display:flex;
         flex-direction: column;
@@ -276,7 +276,7 @@ html{
 
 .register---display---tag{
     width:96%; 
-    height:80%;
+    height:100%;
     backdrop-filter: blur(15px);
     display:flex;
     flex-direction: column;
@@ -288,7 +288,7 @@ html{
   .input--element--outer--div--tag{
     width:80%;
      border:2px solid rgb(87, 87, 87);
-      padding:20px;
+      padding:10px;
 }
 .input--element{ 
     width:100%;
@@ -484,7 +484,7 @@ html{
     
     .register---display---tag{
         width:60%; 
-        height:80%;
+        height:100%;
         backdrop-filter: blur(15px);
         display:flex;
         flex-direction: column;
@@ -495,7 +495,8 @@ html{
     }
     .input--element--outer--div--tag{
      border:2px solid rgb(87, 87, 87);
-      padding:20px;
+      padding:10px;
+      width:100%;
      }
     
      .input--element{ 
@@ -511,7 +512,7 @@ html{
 .input--element--button{
     width:20%;
     margin-top:5%;
-    height:65px;
+    height:45px;
     font-size: 1rem;
     color:white;
     outline:none;
