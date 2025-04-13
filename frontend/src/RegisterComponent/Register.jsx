@@ -25,6 +25,10 @@ function reducer(state,action){
         ...state,
         "linkedInUrl":action.nextLinkedInUrl
       }
+      case "githuburl": return {
+        ...state,
+        "githuburl":action.nextGitHubUrl
+      }
 
       case "password": return {
         ...state,
@@ -48,24 +52,27 @@ export default function Register() {
     email:"",
     password:"",
    confirmPassword:"",
-   linkedInUrl:""
+   linkedInUrl:"",
+   githuburl:""
    })
 
- const handleOnSubmit=(e)=>{
-  e.preventDefault();
+ const handleOnSubmit=async(e)=>{
+    e.preventDefault();
+    
 try{
 
   const form = new FormData()
   form.append("userName",state.userName);
-  form.append("firstName",state.firstName);
-  form.append("lastName",state.lastName);
+  form.append("first_name",state.firstName);
+  form.append("last_name",state.lastName);
   form.append("email",state.email);
   form.append("linkedInUrl",state.linkedInUrl);
   form.append("password",state.password);
-  form.append("confirmPassword",state.confirmPassword);
+  form.append("confirm_password",state.confirmPassword);
 
+      console.log(form)
   
-    const response =  axios.post("http://locahost:3076/register",form,{
+    const response = await axios.post("http://localhost:9000/register",form,{
       headers:{
         "Content-Type": "application/json"
       }
@@ -90,6 +97,7 @@ try{
           <label className="text-white">User Name:</label>
           <input
              type="text"
+             value={state.userName || ""}
              name="userName"
               onChange={(e)=>dispatch(
                {
@@ -106,6 +114,7 @@ try{
           <input
              type="email"
              name="email"
+             value={state.email || ""}
              onChange={(e)=>dispatch({
                 type:"email",
                 nextEmail:e.target.value
@@ -119,6 +128,7 @@ try{
           <input
              type="text"
              nam="firstName"
+             value={state.firstName || ""}
              onChange={(e)=>dispatch({
               type:"firstName",
               nextFirstName:e.target.value
@@ -133,6 +143,7 @@ try{
           <input
              type="text"
              name="lastName"
+             value={state.lastName || ""}
              onChange={(e)=>dispatch({
               type:"lastName",
               nextLastName:e.target.value
@@ -145,6 +156,7 @@ try{
           <label className="text-white">LinkedIn URL:</label>
           <input
              type="url"
+             value={state.linkedInUrl || ""}
              name="linkedInUrl"
              onChange={(e)=> dispatch({
               type:"linkedInUrl",
@@ -154,10 +166,26 @@ try{
              ></input>
            </div>
 
+
+           <div className="input--element--outer--div--tag">
+          <label className="text-white">Git Hub URL:</label>
+          <input
+             type="url"
+             value={state.githuburl||""}
+             name="githuburl"
+             onChange={(e)=> dispatch({
+              type:"githuburl",
+              nextGitHubUrl:e.target.value
+             })}
+             className="input--element"
+             ></input>
+           </div>
+
          <div className="input--element--outer--div--tag">
          <label className="text-white">Password : </label>
           <input
              type="password"
+             value={state.password || ""}
              name="password"
              onChange={(e)=> dispatch({
               type:"password",
@@ -171,6 +199,7 @@ try{
           <label className="text-white">Confirmation Password:</label>
           <input
              type="password"
+             value={state.confirmPassword || ""}
              name="confirmPassword"
              onChange={(e)=>dispatch({
               type:"confirmPassword",

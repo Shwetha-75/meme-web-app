@@ -17,7 +17,7 @@ const app=express();
 
 
 app.use(cors({
-    origin:'http://localhost:5173'
+    origin:'http://192.168.1.4:3000'
 }))
 
 app.use(express.json())
@@ -49,9 +49,10 @@ app.post("/register",async(req,resp)=>{
         "email":req.body.email,
         "first_name":req.body.first_name,
         "last_name":req.body.last_name,  
-        "linkedinurl":req.body.linkedInUrl,
+        "linkedInurl":req.body.linkedInUrl,
+        "githuburl":req.body.githuburl,
         "password":req.body.password,
-        "confirm-password":req.body.confirm_password
+        "confirm_password":req.body.confirm_password
     }
    console.log(data)
    const response = (await supabase.from('user_model').insert(data));
