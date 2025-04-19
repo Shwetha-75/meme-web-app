@@ -1,6 +1,8 @@
 import React from 'react'
 // import { Status } from '../App';
 import axios from "axios"
+import { RegistrationStatus } from '../App'
+import {passwordCriteriaCheck,passwordAndConfirmPassword} from "../PasswordCriteria/Password";
 
 function reducer(state,action){
      switch(action.type){
@@ -37,7 +39,7 @@ function reducer(state,action){
 
       case "confirmPassword": return {
         ...state,
-        "confirmaPassword":action.nextConfirmPassword
+        "confirmPassword":action.nextConfirmPassword
       }
       default: return {...state}
      }
@@ -54,11 +56,28 @@ export default function Register() {
    confirmPassword:"",
    linkedInUrl:"",
    githuburl:""
-   })
+   });
+
+   const [register,setRegister] = React.useState(false);
+   const [errorStatus,setErrorStatus]=React.useState('');
+   const {setRegisterStatus} = React.useContext(RegistrationStatus);
+
 
  const handleOnSubmit=async(e)=>{
     e.preventDefault();
-    
+    let result_password_check=passwordCriteriaCheck(state.password)
+    if(!result_password_check[0]){
+      setErrorStatus(result_password_check[1]);
+      setRegister(true);
+      return;
+    }
+    result_password_check=passwordAndConfirmPassword(state.password,state.confirmPassword)
+    if(!result_password_check[0]){
+      setErrorStatus(result_password_check[1]);
+      setRegister(true);
+      return ;
+    }
+
 try{
 
   const form = new FormData()
@@ -70,15 +89,17 @@ try{
   form.append("password",state.password);
   form.append("confirm_password",state.confirmPassword);
 
-      console.log(form)
+  
   
     const response = await axios.post("http://localhost:9000/register",form,{
       headers:{
         "Content-Type": "application/json"
       }
     })
-    console.log(response)
-
+     let data = response.data;
+     if(data.status === "ok"){
+           setRegisterStatus(false)
+     }
 }  catch(error){
   console.log(error)
 }
@@ -86,10 +107,7 @@ try{
  }
 
   return (
-    <div className={`overlay--display--register `}>
-        <title>Register Page</title>
-        <div className="register---display---tag flex flex-col items-center gap-3">
-            
+   <>
       <form onSubmit={handleOnSubmit}>
 
     
@@ -97,11 +115,11 @@ try{
           <label className="text-white">User Name:</label>
           <input
              type="text"
-             value={state.userName || ""}
+             value={state.userName||""}
              name="userName"
               onChange={(e)=>dispatch(
                {
-                  type:"userName ",
+                  type:"userName",
                   nextUserName:e.target.value
                }
               )} 
@@ -114,7 +132,7 @@ try{
           <input
              type="email"
              name="email"
-             value={state.email || ""}
+             value={state.email||""}
              onChange={(e)=>dispatch({
                 type:"email",
                 nextEmail:e.target.value
@@ -128,7 +146,7 @@ try{
           <input
              type="text"
              nam="firstName"
-             value={state.firstName || ""}
+             value={state.firstName||""}
              onChange={(e)=>dispatch({
               type:"firstName",
               nextFirstName:e.target.value
@@ -143,7 +161,7 @@ try{
           <input
              type="text"
              name="lastName"
-             value={state.lastName || ""}
+             value={state.lastName||""}
              onChange={(e)=>dispatch({
               type:"lastName",
               nextLastName:e.target.value
@@ -156,7 +174,7 @@ try{
           <label className="text-white">LinkedIn URL:</label>
           <input
              type="url"
-             value={state.linkedInUrl || ""}
+             value={state.linkedInUrl||""}
              name="linkedInUrl"
              onChange={(e)=> dispatch({
               type:"linkedInUrl",
@@ -185,7 +203,7 @@ try{
          <label className="text-white">Password : </label>
           <input
              type="password"
-             value={state.password || ""}
+             value={state.password||""}
              name="password"
              onChange={(e)=> dispatch({
               type:"password",
@@ -199,7 +217,7 @@ try{
           <label className="text-white">Confirmation Password:</label>
           <input
              type="password"
-             value={state.confirmPassword || ""}
+             value={state.confirmPassword||""}
              name="confirmPassword"
              onChange={(e)=>dispatch({
               type:"confirmPassword",
@@ -217,7 +235,11 @@ try{
           >
           </input>
     </form>
-        </div>
-    </div>
+       {
+        register && <h3>
+              {errorStatus}
+        </h3>
+       }
+    </>   
   )
 }

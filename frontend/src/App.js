@@ -2,13 +2,16 @@ import React from "react";
 import MainComponent from "./Component/MainComponent";
 import Firebase from "./firebase";
 import Main from "./MainComponent/Main";
-import Register from "./RegisterComponent/Register";
+import LandingPoppUpDisplay from "./PoppUpDisplayComponent/LandingPoppUpDisplay";
+
 export const SelectedImage=React.createContext(null);
 export const MemeGenerate=React.createContext(false);
 export const ConstraintsRef=React.createContext(null);
 export const ImageRef=React.createContext(null);
 export const Data=React.createContext(null);
 export const Status=React.createContext(null);
+export const RegistrationStatus= React.createContext(false);
+
 
 function App() {
 
@@ -17,8 +20,7 @@ function App() {
   const imageRef=React.useRef(null);
   const [data,setData]=React.useState(JSON.parse(localStorage.getItem('data'))||[]);
   const [registerStatus,setRegisterStatus]=React.useState(false);
-  const [status,setStatus]=React.useState(false);
-
+  const [status,setStatus]=React.useState(false)
 
 React.useEffect(()=>{
   localStorage.setItem("data",JSON.stringify(data));
@@ -33,7 +35,7 @@ React.useEffect(()=>{
   },5000);
 
   return ()=>clearTimeout(timeId)
-})
+},[])
   return (
     <>
     <MemeGenerate.Provider value={{memeImage,setMemeImage}} >
@@ -41,10 +43,11 @@ React.useEffect(()=>{
     <ImageRef.Provider value={{imageRef}}>
     <Data.Provider value={{data,setData}}>
    <Status.Provider value={{status,setStatus}}>
-
+   <RegistrationStatus.Provider value={{registerStatus,setRegisterStatus}}>
      <Main/>
      <MainComponent/>
-   {registerStatus &&  <Register/>}
+   {registerStatus && <LandingPoppUpDisplay/>}
+   </RegistrationStatus.Provider>
    </Status.Provider>
     </Data.Provider>
 

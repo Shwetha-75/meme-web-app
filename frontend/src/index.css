@@ -157,7 +157,7 @@ html{
     
     .register---display---tag{
         width:96%; 
-        height:100%;
+        height:60%;
         backdrop-filter: blur(15px);
         display:flex;
         flex-direction: column;
@@ -276,7 +276,7 @@ html{
 
 .register---display---tag{
     width:96%; 
-    height:100%;
+    height:60%;
     backdrop-filter: blur(15px);
     display:flex;
     flex-direction: column;
@@ -345,7 +345,7 @@ html{
     
     .register---display---tag{
         width:96%; 
-        height:80%;
+        height:60%;
         backdrop-filter: blur(15px);
         display:flex;
         flex-direction: column;
@@ -484,7 +484,7 @@ html{
     
     .register---display---tag{
         width:60%; 
-        height:100%;
+        height:80%;
         backdrop-filter: blur(15px);
         display:flex;
         flex-direction: column;
