@@ -3,6 +3,7 @@ import MainComponent from "./Component/MainComponent";
 import Firebase from "./firebase";
 import Main from "./MainComponent/Main";
 import LandingPoppUpDisplay from "./PoppUpDisplayComponent/LandingPoppUpDisplay";
+import LandingPage from "./LandingComponent/LandingPage"
 
 export const SelectedImage=React.createContext(null);
 export const MemeGenerate=React.createContext(false);
@@ -19,40 +20,39 @@ function App() {
   const constraintsRef=React.useRef(null);
   const imageRef=React.useRef(null);
   const [data,setData]=React.useState(JSON.parse(localStorage.getItem('data'))||[]);
-  const [registerStatus,setRegisterStatus]=React.useState(false);
+  const [registerStatus,setRegisterStatus]=React.useState(true);
   const [status,setStatus]=React.useState(false)
 
 React.useEffect(()=>{
   localStorage.setItem("data",JSON.stringify(data));
   localStorage.setItem("imageRef",JSON.stringify(imageRef))
-  // localStorage.setItem("")
 });
 
-React.useEffect(()=>{
-  const timeId=setTimeout(()=>{
-    setRegisterStatus(true);
-    setStatus(true)
-  },5000);
+// React.useEffect(()=>{
+//   const timeId=setTimeout(()=>{
+//     setRegisterStatus(true);
+//     setStatus(true)
+//   },5000);
 
-  return ()=>clearTimeout(timeId)
-},[])
+//   return ()=>clearTimeout(timeId)
+// },[])
   return (
     <>
     <MemeGenerate.Provider value={{memeImage,setMemeImage}} >
-     <ConstraintsRef.Provider value={{constraintsRef}}>
+    <ConstraintsRef.Provider value={{constraintsRef}}>
     <ImageRef.Provider value={{imageRef}}>
     <Data.Provider value={{data,setData}}>
-   <Status.Provider value={{status,setStatus}}>
-   <RegistrationStatus.Provider value={{registerStatus,setRegisterStatus}}>
-     <Main/>
-     <MainComponent/>
-   {registerStatus && <LandingPoppUpDisplay/>}
-   </RegistrationStatus.Provider>
-   </Status.Provider>
+    <Status.Provider value={{status,setStatus}}>
+    <RegistrationStatus.Provider value={{registerStatus,setRegisterStatus}}>
+      {/* <Main/> */}
+      {/* <MainComponent/> */}
+      {/* {registerStatus && <LandingPoppUpDisplay/>} */}
+      <LandingPage/>
+    </RegistrationStatus.Provider>
+    </Status.Provider>
     </Data.Provider>
-
     </ImageRef.Provider>
-     </ConstraintsRef.Provider>
+    </ConstraintsRef.Provider>
     </MemeGenerate.Provider>
     <Firebase/>
     </>

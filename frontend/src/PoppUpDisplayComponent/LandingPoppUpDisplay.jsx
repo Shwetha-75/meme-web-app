@@ -1,5 +1,5 @@
 import React from 'react'
-import Registeration from "../RegisterComponent/Register"
+import Registration from "../RegisterComponent/Register"
 import Login from "../LoginComponent/LoginComponent";
 
 export default function LandingPoppUpDisplay() {
@@ -13,11 +13,11 @@ const handleOnClick = ()=>setLoginStatus(!loginStatus);
     <div className={`overlay--display--register`}>
    
     <div className="register---display---tag flex flex-col items-center gap-3">
-     <h3 className='text-white'
-      onClick={handleOnClick}>{loginStatus ?"Register":"Login"}</h3>
-       {!loginStatus && <Registeration/>}
+     {/* <h3 className='text-white'
+      onClick={handleOnClick}>{loginStatus ?"Register":"Login"}</h3> */}
+       {!loginStatus && <Registration/>}
 
-       {loginStatus && <Login/>}
+       {/* {loginStatus && <Login/>} */}
      </div>
 
      </div>

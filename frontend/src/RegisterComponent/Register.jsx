@@ -3,6 +3,7 @@ import React from 'react'
 import axios from "axios"
 import { RegistrationStatus } from '../App'
 import {passwordCriteriaCheck,passwordAndConfirmPassword} from "../PasswordCriteria/Password";
+import "../RegisterComponent/register.css"
 
 function reducer(state,action){
      switch(action.type){
@@ -108,9 +109,9 @@ try{
 
   return (
    <>
-      <form onSubmit={handleOnSubmit}>
 
-    
+   <h1 className="header--tag--register text-white">Sign Up</h1>
+      <form onSubmit={handleOnSubmit}>
         <div className="input--element--outer--div--tag">
           <label className="text-white">User Name:</label>
           <input
@@ -140,65 +141,7 @@ try{
              className="input--element"
              ></input>
            </div>   
-         
-           <div className="input--element--outer--div--tag">
-          <label className="text-white">First Name:</label>
-          <input
-             type="text"
-             nam="firstName"
-             value={state.firstName||""}
-             onChange={(e)=>dispatch({
-              type:"firstName",
-              nextFirstName:e.target.value
-             })
-             }
-             className="input--element"
-             ></input>
-           </div>
-
-           <div className="input--element--outer--div--tag">
-          <label className="text-white">Last Name:</label>
-          <input
-             type="text"
-             name="lastName"
-             value={state.lastName||""}
-             onChange={(e)=>dispatch({
-              type:"lastName",
-              nextLastName:e.target.value
-             })}
-             className="input--element"
-             ></input>
-           </div>
-
-           <div className="input--element--outer--div--tag">
-          <label className="text-white">LinkedIn URL:</label>
-          <input
-             type="url"
-             value={state.linkedInUrl||""}
-             name="linkedInUrl"
-             onChange={(e)=> dispatch({
-              type:"linkedInUrl",
-              nextLinkedInUrl:e.target.value
-             })}
-             className="input--element"
-             ></input>
-           </div>
-
-
-           <div className="input--element--outer--div--tag">
-          <label className="text-white">Git Hub URL:</label>
-          <input
-             type="url"
-             value={state.githuburl||""}
-             name="githuburl"
-             onChange={(e)=> dispatch({
-              type:"githuburl",
-              nextGitHubUrl:e.target.value
-             })}
-             className="input--element"
-             ></input>
-           </div>
-
+        
          <div className="input--element--outer--div--tag">
          <label className="text-white">Password : </label>
           <input
@@ -214,7 +157,7 @@ try{
              </div>
 
              <div className="input--element--outer--div--tag">
-          <label className="text-white">Confirmation Password:</label>
+          <label className="text-white">Confirm Password:</label>
           <input
              type="password"
              value={state.confirmPassword||""}
@@ -230,7 +173,6 @@ try{
           <input
           value="Submit"
           type="submit"
-          
           className="input--element--button"
           >
           </input>
