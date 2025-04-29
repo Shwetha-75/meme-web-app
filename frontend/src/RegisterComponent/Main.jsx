@@ -1,5 +1,6 @@
 import React from 'react'
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import styled from 'styled-components';
 function reducer(state,action){
     switch(action.type){
         case "username": return{
@@ -24,6 +25,11 @@ function reducer(state,action){
     }
 }
 
+const Container = styled.div`
+    width:100%;
+    
+`
+
 export default function Main() {
   
     const [state,dispatch] = React.useReducer(reducer,{
@@ -33,59 +39,44 @@ export default function Main() {
         confirmPassword:""
     })
 
-   console.log(state)
 
   return (
-    <>
+    <Container>
+
+      <div className="div--tag--register--email">
+      <ArrowBackIcon fontSize='medium' color='primary'/>
+      </div>
       <div className="form---tag---register">
-      <div className="div--tag--outer--register">
-      <label className='label--tag--register'>Email</label> 
+      <div className="label--tag--email-register"><label className=''>Email</label></div>
+      <div className='input--email--container'>
+
         <input
         type="text"
         name="username"
         autoComplete='off'
         autoFocus="on"
-        className="input--tag--register"
+        className="input--tag--register--email"
         value={state.username}
         onChange={(e)=>dispatch({
           type:"username",
           nextUserName:e.target.value
         })}
         />
+        <span className="focus-border"></span>
+        <i></i>
         </div>
+        
        
        <br></br>
-       <div className="div--tag--outer--register">
-       <label className='label--tag--register'>Password</label>  
-        <input
-        type="password"
-        name="password"
-        autoComplete='new-password'
-        className="input--tag--register"
-        value={state.password}
-        onChange={(e)=>dispatch({
-          type:"password",
-          nextPassword:e.target.value 
-        })}
-        />
-        </div>
-        <br></br>
-        <div className="div--tag--outer--register">
-        <label className='label--tag--register'>Confirm Password</label> 
-        <input
-         type="password"
-         autoComplete='new-password'
-         name="confirmPassword"
-         className="input--tag--register"
-         onChange={(e)=>dispatch({
-           type:"confirmPassword",
-           nextConfirmPassword:e.target.value 
-          })}
-          />
-          </div>
-        <br></br>
-       
+   
+      <div className='btn--tag--register--div' >
+
+      <button className="btn--tag--register">Cancel</button>
+   
+      <button className="btn--tag--register">Continue</button>
       </div>
-    </>
+        </div>
+      
+    </Container>
   )
 }

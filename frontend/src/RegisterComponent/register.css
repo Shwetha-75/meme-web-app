@@ -1,0 +1,213 @@
+@media only screen and (min-width: 992px){
+    .btn--tag--register--div{
+        width:100%;
+        display:flex;
+        padding:50px;
+        justify-content: space-evenly;
+
+    }
+    
+    
+    .btn--tag--register{
+        color:rgba(255, 255, 255, 0.893);
+        width:25%;
+        padding:15px;
+        border:2px solid #047bb6;
+        font-size:1rem;
+        border-radius: 100px;
+    }
+    
+    .form--tag--main{
+        height:60%;
+        width:45%;  
+        display: flex;
+    
+        flex-direction: column;
+        
+        align-items: center;
+        
+    }
+    .form---tag---register{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+        justify-content: center;
+        bottom:0;
+        top:0;
+        margin-top:15%;
+    }
+
+    .input--email--container {
+        position: relative;
+        display: inline-block;
+        width: 75%;
+    }
+    
+    .input--tag--register--email {
+        background-color: transparent;
+        padding: 5%;
+        color: white;
+        font-size: 1rem;
+        font-family: "Noto Serif", serif;
+        width: 100%;
+        border: 2px solid rgba(128, 128, 128, 0.264);
+        transition: 1s;
+        position: relative;
+        box-sizing: border-box;
+       
+	    letter-spacing: 1px;
+        z-index: 1;
+    }
+
+    :focus {
+        outline: none;
+        transition: 1s;
+        border-left:2px solid #3399FF;
+        border-right:2px solid #3399FF;
+    }
+   
+/* ----------------------------------------- */
+   .input--tag--register--email~.focus-border:before,
+   .input--tag--register--email~.focus-border:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #3399FF;
+    transition: 1s;
+}
+
+   .input--tag--register--email~.focus-border:after {
+	top: auto;
+	bottom: 0;
+	left: auto;
+	right: 0;
+    background-color: #3399FF;
+}
+
+   .input--tag--register--email~.focus-border i:before,
+   .input--tag--register--email~.focus-border i:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 2px;
+	height: 0;
+	background-color: #3399FF;
+    transition: 1s;
+}
+
+   .input--tag--register--email~.focus-border i:after {
+	left: auto;
+	right: 0;
+	top: auto;
+    background-color: #3399FF;
+	bottom: 0;
+}
+
+   .input--tag--register--email:focus~.focus-border:before,
+   .input--tag--register--email:focus~.focus-border:after {
+	width: 100%;
+    transition: 1s;
+    background-color: #3399FF;
+}
+
+   .input--tag--register--email:focus~.focus-border i:before,
+   .input--tag--register--email:focus~.focus-border i:after {
+	height: 100%;
+    transition: 1s;
+    background-color: #3399FF;
+}
+
+/* -------------------------------------------- */
+   .label--tag--email-register{
+
+    width: 75%;
+    color:white;
+    padding:1%;
+    text-align: left;
+    font-size:1.2rem
+
+   }
+
+   .div--tag--register--email{
+
+     
+      width:75%;
+      z-index:-999;
+   }
+}
+
+
+
+@media only screen and (min-width: 1220px){
+    .register---display---tag{
+        width:60%; 
+        height:80%;
+        backdrop-filter: blur(15px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border:2px solid rgba(112, 124, 129, 0);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.611), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }
+    .input--element--outer--div--tag{
+     border:2px solid rgb(87, 87, 87);
+      padding:10px;
+      width:100%;
+     }
+    
+    .input--element{ 
+        width:100%;
+        font-size: 1.2rem;
+        color:white;
+        outline:none;
+      
+        background-color: transparent;
+    }
+    .input--element--button{
+        width:20%;
+        margin-top:5%;
+        height:45px;
+        font-size: 1rem;
+        color:white;
+        outline:none;
+        cursor:pointer;
+        border:none;
+        border-radius:10px;
+        background-color: rgba(7, 7, 7, 0.479);
+    }
+    
+    .input--element--button:hover{
+        transition: 1s;
+        
+        background-color: rgba(10, 10, 10, 0.786);
+    }
+    .label--tag--register{
+        margin-top:-0.76%;
+        position:fixed;
+        color: white;
+        margin-left:2%;
+        padding:0.05%;
+        background-color: black;
+    }
+}
+
+@media only screen and ( min-width: 2000px){
+    
+    .label--tag--register{
+        margin-top:-0.76%;
+        position:fixed;
+        color: white;
+        margin-left:2%;
+        padding:3px;
+        background-color: black;
+        z-index:1;
+    }
+
+}

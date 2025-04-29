@@ -8,14 +8,15 @@ export default function LandingPage() {
      header--tag--main--page
      text-white">Meme Generator</h1>
      </>
-     <div className="divider--tag--main">
+     {/* <div className="divider--tag--main">
 
-     </div>
+     </div> */}
 
      <div className="form--tag--main">
+      
       <Register/>
       
-     <button className="btn--tag--main">Register</button>
+      {/* <button className="btn--tag--main">Register</button> */}
      </div>
     </div>
   )
