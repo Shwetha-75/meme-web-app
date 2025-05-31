@@ -26,19 +26,14 @@ input::-webkit-inner-spin-button {
     
 }
 
-html{
-    background: rgb(21,21,21);
-}
-
 
 /* ------------------- */
 .outer-border {
     position: relative;
     border: none;
-    width: 60%;
-    height: 60vh;
-    margin-left: 20%;
+    height:100%;
     overflow: hidden;
+    padding:0;
 }
 
 .container {
@@ -89,6 +84,7 @@ html{
  .image--tag--meme--active{
     transition: 1s;
     opacity: 0.2;
+    border:none;
  }
 
  .image--tag--meme--deactive{
@@ -154,10 +150,6 @@ html{
 
 @media only screen and (max-width : 600px){
 
-    html{
-
-        background: rgb(21,21,21);
-    }
     
     .overlay--display--register{
         height:100%;
@@ -229,11 +221,7 @@ html{
  }
  
  
- html{
-
-    background: rgb(21,21,21);
-}
-
+ 
 
  /* .text--display{
      opacity: 0;
@@ -342,11 +330,7 @@ html{
 @media only screen and (min-width : 768px){
 
     
-    html{
-
-        background: rgb(21,21,21);
-    }
-
+ 
     .overlay--display--register{
         height:100%;
         position:fixed;
@@ -411,10 +395,7 @@ html{
 @media only screen and (min-width : 992px){
 
    
-    html{
-
-        background: rgb(21,21,21);
-    }
+    
 
     .overlay--display--register{
         height:100%;
@@ -485,9 +466,7 @@ html{
  
  }
  
- html{
-     background-color:black;
- }
+
  
  .header--tag--main--page{
      font-size: 3.5rem;
@@ -514,11 +493,7 @@ html{
 @media only screen and ( min-width: 1220px){
 
   
-    html{
-
-        background: rgb(0, 0, 0);
-    }
-
+    
     .overlay--display--register{
         height:100%;
         position:fixed;
@@ -549,4 +524,34 @@ html{
         background: radial-gradient(circle, #047bb6 2%, #047bb6 11%, #047bb6 10%);
     }
     
+}
+
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+ display: none;
+}
+
+
+
+html::-webkit-scrollbar {
+  width: 5px;
+
+}
+ 
+html::-webkit-scrollbar-track {
+  background: black;
+  box-shadow: inset 0 0 6px rgba(48, 48, 52, 0.3);
+}
+html::-webkit-scrollbar-thumb {
+  backdrop-filter: blur(13px);
+  background: #434242;
+  border:none;
+  border-radius: 100px;
+}
+
+html {
+  background-color: #02060a;
+  color: #f8fafc;
+ 
 }

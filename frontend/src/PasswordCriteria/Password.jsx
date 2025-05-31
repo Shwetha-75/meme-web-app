@@ -1,6 +1,7 @@
 const passwordCriteriaCheck = password=>{
+    console.log(password.length)
     if(password.length<8 )return [false,"password is weak"];
-    if(password.length>15)return [false,"password length is exceeding!"];
+   
     // check the criteria
     let result_1=password.match('[a-z]');
     let result_2=password.match('[A-Z]');
@@ -12,8 +13,11 @@ const passwordCriteriaCheck = password=>{
 }
 
 const passwordAndConfirmPassword = (password,confirm_password)=>{
+    console.log(password.length)
+    console.log(confirm_password.length)
     if(password.length!==confirm_password.length) return [false,"password does not match !"];
-    if(password!==confirm_password) return 
+    if(password!==confirm_password) return [false,"password does not match !"];
+    return [true,"match !!"]
 }
 
 export  {passwordCriteriaCheck,passwordAndConfirmPassword};

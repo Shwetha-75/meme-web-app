@@ -1,0 +1,12 @@
+.add--btn--tag{
+    border-radius:10px;
+    color:rgb(255, 255,255);
+    border :none;
+    font-size:1rem;
+}
+.add--btn--tag:hover{
+    transition:0.9s;
+     color:rgb(255, 255, 255);
+     border:none;
+     outline:none;
+}

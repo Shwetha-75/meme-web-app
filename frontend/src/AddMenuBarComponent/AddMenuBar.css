@@ -1,0 +1,25 @@
+.options--tag--menu--bar{
+  transition:0.9s;  
+    max-height:480px;
+    overflow-y:auto;
+    opacity:0.9;
+}
+.options--tag--menu--bar:hover{
+  transition:0.9s;  
+  opacity:1;
+}
+.options--tag--menu--bar::-webkit-scrollbar {
+  width: 2px;
+
+}
+ 
+.options--tag--menu--bar::-webkit-scrollbar-track {
+  background: black;
+  box-shadow: inset 0 0 6px rgba(48, 48, 52, 0.3);
+}
+.options--tag--menu--bar::-webkit-scrollbar-thumb {
+  backdrop-filter: blur(13px);
+  background: #434242;
+  border:none;
+  border-radius: 100px;
+}

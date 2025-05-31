@@ -1,0 +1,29 @@
+input[type='color'] {
+  padding: 0;
+  width: 150%;
+  height:150%;
+  margin:-25%;
+  outline:none;
+  border:none;
+}
+
+.cp_wrapper{
+  overflow: hidden;
+  
+  /* optional formatting below here */
+  border-radius:50%;
+  margin: 1em;
+}
+
+.color--text--tag{
+  background-color:transparent;
+  border-bottom: 2px solid slategray;
+  height:50px;
+  outline:none
+}
+input[type='color']:focus{
+  border-left:none;
+  border-right:none;
+  border-bottom: 2px solid slategray;
+  outline:none;
+}

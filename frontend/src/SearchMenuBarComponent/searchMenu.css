@@ -1,0 +1,18 @@
+.search--tag--input{
+    background-color: transparent;
+    outline:none;
+    width:100%;
+    padding:5%;
+    border:none
+}
+:focus{
+   transition:0.8s;
+   border-bottom:1px solid slate;
+}
+.search--icon--tag{
+    transition: transform 0.9s ease ;
+}
+.search--icon--tag:hover{
+    transition:0.9s;
+   transform:rotate(90deg);
+}

@@ -1,9 +1,20 @@
 import React from 'react'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditTextBoxColor from "../EditMemeComponent/EditTextBoxColor";
+import EditTextBoxSize from "../EditMemeComponent/EditTextBoxSize";
+import ChooseTextColor from "../EditMemeComponent/ChooseTextColor";
+import EditFontSize from "../EditMemeComponent/EditFontSize";
+import FontFamily from "../EditMemeComponent/FontFamily"
 // import { HdrAuto } from '@mui/icons-material';
 export default function Draggable({id,onChange,onClick,onRemove,onMouseMove,pictureStatus}) {
  
 console.log(pictureStatus)
+
+const {editTextBoxColor} = React.useContext(EditTextBoxColor);
+const {editTextBoxSize} = React.useContext(EditTextBoxSize);
+const {chooseTextColor} = React.useContext(ChooseTextColor);
+const {editFontSize} = React.useContext(EditFontSize);
+const {fontFamily} = React.useContext(FontFamily);
 
 React.useEffect(()=>{
 
@@ -102,6 +113,8 @@ React.useEffect(()=>{
           startHeight = resizable.offsetHeight;
           startLeft = resizable.offsetLeft;
           startTop = resizable.offsetTop;
+          // startRight = resizable.offsetRight;
+          // startBottom = resizable.offsetBottom;
           document.addEventListener("mousemove", resize);
           document.addEventListener("mouseup", stopResize);
         //   document.addEventListener("touchmove", resize);
@@ -129,9 +142,10 @@ React.useEffect(()=>{
           }
       } else if (borderType === `bottom-${id}`) {
           let newHeight = startHeight + (e.clientY - startY);
-          if (newHeight <= parentHeight - startTop) {
-              resizable.style.height = `${newHeight}px`;
+          if (newHeight <= parentHeight - startHeight){
+               resizable.style.height=`${newHeight}px`;
           }
+         
       } else if (borderType === `top-${id}`) {
           let newHeight = startHeight - (e.clientY - startY);
           let newTop = startTop + (e.clientY - startY);
@@ -180,27 +194,63 @@ React.useEffect(()=>{
     className='container cursor-move' 
     id={`resizable-${id}`} 
     onClick={()=>onClick(id)}>
-        <span className="w-fit flex flex-col items-end absolute text-white right-5 top-5 cursor-pointer deactivate--delete--button" onClick={()=>onRemove(id)}>
+        <span 
+        style={{
+           color:editTextBoxColor
+        }}
+        className="w-fit flex flex-col items-end absolute  right-5 top-5 cursor-pointer deactivate--delete--button" onClick={()=>onRemove(id)}>
             
-       {pictureStatus && <DeleteForeverIcon 
-    
-        />}
+       {pictureStatus && 
+       <DeleteForeverIcon />}
         
         </span>
-        <div className={`border-handle   ${pictureStatus?"top":"top-active"}`} data-border={`top-${id}`}></div>
-        <div className={`border-handle   ${pictureStatus?"bottom":"bottom-active"}`} data-border={`bottom-${id}`}></div>
-       <div className="h-full w-full">
-        <input 
+        <div className={`border-handle   ${pictureStatus?"top":"top-active"}`} data-border={`top-${id}`} 
+        style={pictureStatus?{
 
-       maxLength={20}
+          backgroundColor:editTextBoxColor,
+          height:`${editTextBoxSize}px`
+        }:{
+             backgroundColor:'transparent'
+        }}></div>
+        <div className={`border-handle   ${pictureStatus?"bottom":"bottom-active"}`} data-border={`bottom-${id}`}
+        style={pictureStatus?{
+              backgroundColor:editTextBoxColor,
+              height:`${editTextBoxSize}px`
+        }:{
+             backgroundColor:'transparent'
+        }}
+        ></div>
+       <div className="h-[50px] w-full">
+        <input 
+        maxLength={20}
         id="text-area"
         resize={false}
-        className='input--draggable--element w-fit h-[100px] inset-0 resize-none text-white text-area--tag text-start w-full h-full p-2 bg-transparent cursor-move' 
+        style={{
+          color:chooseTextColor,
+         
+          fontSize:`${editFontSize}px`,
+          fontFamily: fontFamily[1]
+        }}
+        className='input--draggable--element w-fit h-[100px] inset-0 resize-none  text-area--tag text-start w-full h-full p-2 bg-transparent cursor-move' 
         onChange={(e)=>onChange(e,id)}/>
        </div>
 
-        <div className={`border-handle   ${pictureStatus?"left":"left-active"}`} data-border={`left-${id}`}></div>
-        <div className={`border-handle   ${pictureStatus?"right":"right-active"}`} data-border={`right-${id}`}></div>
+        <div className={`border-handle   ${pictureStatus?"left":"left-active"}`} data-border={`left-${id}`}
+        style={pictureStatus?{
+              backgroundColor:editTextBoxColor,
+              width:`${editTextBoxSize}px`
+        }:{
+             backgroundColor:'transparent'
+        }}
+        ></div>
+        <div className={`border-handle   ${pictureStatus?"right":"right-active"}`} data-border={`right-${id}`}
+        style={pictureStatus?{
+              backgroundColor:editTextBoxColor,
+              width:`${editTextBoxSize}px`
+        }:{
+             backgroundColor:'transparent'
+        }}
+        ></div>
     </div>
 
 

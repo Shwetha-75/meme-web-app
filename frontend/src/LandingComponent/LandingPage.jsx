@@ -1,5 +1,5 @@
 import React from 'react'
-import Register from "../RegisterComponent/Main"
+import Main from '../Main/Main'
 export default function LandingPage() {
   return (
     <div  className="flex h-screen items-center justify-center gap-[6rem]">
@@ -14,7 +14,8 @@ export default function LandingPage() {
 
      <div className="form--tag--main">
       
-      <Register/>
+      <Main/>
+      {/* <Password/> */}
       
       {/* <button className="btn--tag--main">Register</button> */}
      </div>

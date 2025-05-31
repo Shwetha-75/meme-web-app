@@ -1,0 +1,31 @@
+.add--btn--tag{
+    border-radius:10px;
+    color:rgb(255, 255,255);
+    border :none;
+    font-size:1rem;
+}
+.add--btn--tag:hover{
+    transition:0.9s;
+     color:rgb(255, 255, 255);
+     border:none;
+     outline:none;
+}
+ input[type="file"] {
+    color: transparent;
+    font-size: 16px;
+    padding: 8px;
+    width: 100%;
+    cursor: pointer;
+
+  }
+  input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+  input[type="file"]::file-selector-button {
+    visibility: hidden;
+  }
+  input[type="file"]::before {
+   
+    color:transparent;
+  }
