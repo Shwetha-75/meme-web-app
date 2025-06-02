@@ -6,7 +6,7 @@
     transform:rotate(180deg);
 }
 .font--tag--select {
-  max-height: 0;
+    max-height: 0;
   overflow: hidden;
   transition: 1.3s;
 

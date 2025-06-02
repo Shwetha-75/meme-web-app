@@ -3,13 +3,14 @@
     max-height:480px;
     overflow-y:auto;
     opacity:0.9;
+    overflow-x:hidden;
 }
 .options--tag--menu--bar:hover{
   transition:0.9s;  
   opacity:1;
 }
 .options--tag--menu--bar::-webkit-scrollbar {
-  width: 2px;
+  width: 8px;
 
 }
  

@@ -1,6 +1,6 @@
 import React from "react"
-import FontFamily from "../EditMemeComponent/FontFamily";
-import data from "./data.json";
+// import FontFamily from "../EditMemeComponent/FontFamily";
+import fontStyles from "./data.json";
 import styled from "styled-components";
 import "./AddFontFamily.css"
 const Container = styled.div`
@@ -10,14 +10,19 @@ const Container = styled.div`
 const Panel = styled.div`
   
 `
-export default function AddFontFamilyComponent() {
+export default function AddFontFamilyComponent({
+   id,
+   onChangeFontFamily
+}) {
 
-  const {setFontFamily} = React.useContext(FontFamily);
+  // const {setFontFamily} = React.useContext(FontFamily);
   const [fontFamilyDisplay,setFontFamilyDisplay]= React.useState(false);
 
   const handleOnClickFontFamily=()=>{
     setFontFamilyDisplay(prev=>!prev);
-  }
+  };
+
+  console.log(fontStyles)
   return (
     <Container className="p-2 mt-[5%]">
       <Panel className="flex justify-between">
@@ -41,7 +46,7 @@ export default function AddFontFamilyComponent() {
 >
 
       <ul className="grid grid-cols-3 gap-3 mt-[5%]">
-        {data.map((item,index)=>
+        {fontStyles.map((item,index)=>
           <li
           className="text-center"
           key={index}
@@ -49,7 +54,7 @@ export default function AddFontFamilyComponent() {
             fontFamily:`${item}`,
             cursor:'pointer'
           }}
-          onClick={()=>setFontFamily([index,item])}
+          onClick={()=>{onChangeFontFamily(id,item)}}
           >Font</li>
       )}
       </ul>

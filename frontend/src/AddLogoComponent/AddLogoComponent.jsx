@@ -1,15 +1,13 @@
 import React from "react";
 import PictureStatus from "../EditMemeComponent/PictureStatus";
 import AddDraggableComponent from "./AddDraggableComponent";
-import EditTextBoxColor from "../EditMemeComponent/EditTextBoxColor"
 import DataImageTag from "../DataImageTag"
 export default function AddLogoComponent(){
 
     // const [logoImageTag,setLogoImageTag] = React.useState("");
     const {pictureStatus} = React.useContext(PictureStatus);
     const {dataImageTag,setDataImageTag} = React.useContext(DataImageTag);
-    const {editTextBoxColor,setEditTextBoxColor } = React.useContext(EditTextBoxColor);
-
+  
 
     // const handleOnClickAddTag=()=>{
          

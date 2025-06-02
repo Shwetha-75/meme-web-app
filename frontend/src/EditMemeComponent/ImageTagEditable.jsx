@@ -102,7 +102,7 @@ const handleOnClickDraggableElement=(id)=>{
   
   {/* <Draggable/> */}
 
-  {data.map((item)=>
+  {data?.map((item)=>
       <Draggable
        key={item.id}
        id={item.id}
@@ -111,6 +111,11 @@ const handleOnClickDraggableElement=(id)=>{
        onMouseMove={handleOnMouseMove}
        pictureStatus={pictureStatus}
        onClick={handleOnClickDraggableElement}
+       editTextBoxColor={item.editTextBoxColor}
+       editTextBoxSize={item.editTextBoxSize}
+       chooseTextColor={item.chooseTextColor}
+       editFontSize={item.editFontSize}
+       fontFamily={item.fontFamily}
     />)}
    <AddLogoComponent
    

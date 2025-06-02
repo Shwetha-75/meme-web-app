@@ -1,5 +1,5 @@
 import React from "react";
-import EditFontSize from "../EditMemeComponent/EditFontSize";
+// import EditFontSize from "../EditMemeComponent/EditFontSize";
 import styled from "styled-components"
 import "./AddTextSize.css";
 
@@ -10,12 +10,16 @@ const Container = styled.div`
    align-items:center;
    width:100%;
 `
-export default function AddTextSizeComponent(){
-    const {editFontSize,setEditFontSize} = React.useContext(EditFontSize);
+export default function AddTextSizeComponent({
+    id,
+    editFontSize,
+    onChangeEditFontSize
+}){
+    // const {editFontSize,setEditFontSize} = React.useContext(EditFontSize);
 
     return(
         <Container className="p-2">
-        <label className="p-3">Text Font Size : {editFontSize}</label>
+        <label className="p-3">Font Size : {editFontSize}</label>
         <input
             type="range"
             value={editFontSize}
@@ -23,7 +27,7 @@ export default function AddTextSizeComponent(){
             min="1"
             name="editFontSize"
             className="input--tag--range w-[100%]"
-            onChange={(e)=>setEditFontSize(e.target.value)}
+            onChange={(e)=>{onChangeEditFontSize(id,e.target.value)}}
         />
             
         </Container>

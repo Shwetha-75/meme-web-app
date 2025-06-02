@@ -10,7 +10,8 @@ import "./AddMenuBar.css";
 // import AddFontFamilyComponent from "../AddFontFamilyComponent/AddFontFamilyComponent";
 import AddLogo from "../AddLogo/AddLogo";
 // import AddColorToLogoBorder from "../AddColorToLogoComponent/AddColorToLogoBorder"
-import React from "react"
+import React from "react";
+import Data from "../EditMemeComponent/Data"
 import DataImageTag from "../DataImageTag";
 import AddTextBoxComponent from "../AddTextBoxComponents/AddTextBoxComponent";
 
@@ -25,7 +26,7 @@ const Panel = styled.div`
 export default function AddMenuBar({handleOnClick,handleOnAddLogo}) {
       
      const {dataImageTag,setDataImageTag} = React.useContext(DataImageTag);
-
+     const {data,setData}=React.useContext(Data);
       const handleOnChangeOnImage=(id,image)=>{
        setDataImageTag(dataImageTag.map((item)=>
            item.id ===id ?
@@ -38,12 +39,64 @@ export default function AddMenuBar({handleOnClick,handleOnAddLogo}) {
       ))
    } 
    
+   const onChangeTextBoxDisplay=(id)=>{
+         setData(data.map((item)=>
+               item.id===id ?
+               {
+                  ...item,
+                  textBoxDisplay:!item.textBoxDisplay
+               } : {...item}
+        ))
+   };
+  const onChangeEditTextBoxColor=(id,color)=>{
+      setData(data.map((item)=>
+           item.id===id ?{
+              ...item,
+              editTextBoxColor:color
+           }:{...item}
+      ))
+  }
+  const onChangeEditTextBoxSize=(id,size)=>{
+       setData(data.map((item)=>
+         item.id===id ? {
+            ...item,
+            editTextBoxSize:size
+         } : {...item}
+      ))
+  }
+
+  const onChangeChooseTextColor = (id,color)=>{
+      setData(data.map((item)=>
+          item.id===id ? {
+            ...item,
+            chooseTextColor:color
+          } : {...item}
+       ))
+  };
+
+  const onChangeEditFontSize =(id,size)=>{
+      setData(data.map((item)=>
+         item.id===id ?{
+            ...item,
+           editFontSize:size
+         } : {...item}
+      ))
+  }
+
+  const onChangeFontFamily = (id,font)=>{
+     setData(data.map((item)=>
+       item.id===id? {
+           ...item,
+           fontFamily:font
+       }:{...item}
+    ))
+  }
   return (
     <Container  className="w-[100%] flex flex-col gap-[1.2rem]">
-      <Panel  className=" p-4">
+      <Panel  className="">
        <SearchMenuBarComponent/>
         </Panel>
-       <Panel  className='max-w-[100%] options--tag--menu--bar flex flex-col gap-[2rem]'>
+       <Panel  className='w-[100%] options--tag--menu--bar flex flex-col gap-[2rem]'>
 
         {/* <Panel  className="p-5  w-[100%]">
           <AddColorToTextBox/>
@@ -75,17 +128,34 @@ export default function AddMenuBar({handleOnClick,handleOnAddLogo}) {
            */}
       
         <Panel
-        className='w-[100%]'>
+        className='w-[98%]'>
         <AddTag
            handleOnClick={handleOnClick}  />
         </Panel>
 
-          <Panel>
-            <AddTextBoxComponent/>
+          <Panel className='w-[98%]'>
+             {data?.map((item,index)=>
+              <AddTextBoxComponent
+                id={item.id}
+                index={index}
+                textBoxDisplay={item.textBoxDisplay}
+                onChangeTextBoxDisplay={onChangeTextBoxDisplay}
+                editTextBoxColor={item.editTextBoxColor}
+                onChangeEditTextBoxColor={onChangeEditTextBoxColor}
+                editTextBoxSize={item.editTextBoxSize} 
+                onChangeEditTextBoxSize={onChangeEditTextBoxSize}
+                chooseTextColor={item.chooseTextColor}
+                onChangeChooseTextColor={onChangeChooseTextColor}
+                editFontSize={item.editFontSize}
+                onChangeEditFontSize={onChangeEditFontSize}
+                fontFamily={item.fontFamily}
+                onChangeFontFamily={onChangeFontFamily}
+              />
+            )}
           </Panel>
           
         <Panel 
-        className='w-[100%]'>
+        className='w-[98%]'>
         <AddLogo
         handleOnAddLogo={handleOnAddLogo}
         onImage={handleOnChangeOnImage}

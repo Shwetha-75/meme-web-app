@@ -1,20 +1,23 @@
 import React from 'react'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import EditTextBoxColor from "../EditMemeComponent/EditTextBoxColor";
-import EditTextBoxSize from "../EditMemeComponent/EditTextBoxSize";
-import ChooseTextColor from "../EditMemeComponent/ChooseTextColor";
-import EditFontSize from "../EditMemeComponent/EditFontSize";
-import FontFamily from "../EditMemeComponent/FontFamily"
 // import { HdrAuto } from '@mui/icons-material';
-export default function Draggable({id,onChange,onClick,onRemove,onMouseMove,pictureStatus}) {
+export default function Draggable(
+  {id,
+  onChange,
+  onClick,
+  onRemove,
+  onMouseMove,
+  pictureStatus,
+  editTextBoxColor,
+  editTextBoxSize,
+  chooseTextColor,
+  editFontSize,
+  fontFamily
+}) {
  
 console.log(pictureStatus)
 
-const {editTextBoxColor} = React.useContext(EditTextBoxColor);
-const {editTextBoxSize} = React.useContext(EditTextBoxSize);
-const {chooseTextColor} = React.useContext(ChooseTextColor);
-const {editFontSize} = React.useContext(EditFontSize);
-const {fontFamily} = React.useContext(FontFamily);
+
 
 React.useEffect(()=>{
 
@@ -229,7 +232,7 @@ React.useEffect(()=>{
           color:chooseTextColor,
          
           fontSize:`${editFontSize}px`,
-          fontFamily: fontFamily[1]
+          fontFamily: fontFamily
         }}
         className='input--draggable--element w-fit h-[100px] inset-0 resize-none  text-area--tag text-start w-full h-full p-2 bg-transparent cursor-move' 
         onChange={(e)=>onChange(e,id)}/>

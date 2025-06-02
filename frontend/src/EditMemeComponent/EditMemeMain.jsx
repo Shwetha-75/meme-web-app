@@ -7,11 +7,6 @@ import AddMenuBar from "../AddMenuBarComponent/AddMenuBar"
 import ConstraintsRef from "./ConstraintsRef";
 import DownloadButton from "../DownloadComponent/DownloadButton";
 import PictureStatus from "./PictureStatus";
-import EditTextBoxColor from './EditTextBoxColor';
-import EditTextBoxSize from './EditTextBoxSize';
-import ChooseTextColor from "./ChooseTextColor";
-import EditFontSize from "./EditFontSize";
-import FontFamily from "./FontFamily";
 import DataImageTag from "../DataImageTag";
 import Logo from './Logo';
 import EditLogoColor from './EditLogoColor';
@@ -26,15 +21,13 @@ const Panel = styled.div`
 export default function EditMemeMain() {
 
 
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState(()=>{
+       let temp=sessionStorage.getItem('data');
+       return temp ? JSON.parse(temp) : []
+  });
   const [pictureStatus, setPictureStatus] = React.useState(true);
   const constraintsRef = React.useRef(null);
   const [editLogoColor,setEditLogoColor] = React.useState('black');
-  const [editTextBoxColor, setEditTextBoxColor] = React.useState("white");
-  const [editTextBoxSize,setEditTextBoxSize] = React.useState('1');
-  const [chooseTextColor,setChooseTextColor] = React.useState('white');
-  const [editFontSize,setEditFontSize] = React.useState('16');
-  const [fontFamily,setFontFamily] = React.useState([1,'cambria']);
   const [dataImageTag,setDataImageTag] = React.useState([])
   const [logo,setLogo] = React.useState('')
   // creating the text box
@@ -52,21 +45,21 @@ export default function EditMemeMain() {
     ])
   }
 
+  React.useEffect(()=>{
+      sessionStorage.setItem('data',JSON.stringify(data))
+  })
+
   return (
 
       <PictureStatus.Provider value={{ pictureStatus, setPictureStatus }}>
       <ConstraintsRef.Provider value={{ constraintsRef }}>
       <Data.Provider value={{ data, setData }}>
-      <EditTextBoxColor.Provider value={{ editTextBoxColor, setEditTextBoxColor }}>
-      <EditTextBoxSize.Provider value={{editTextBoxSize,setEditTextBoxSize}}>
-      <EditFontSize.Provider value={{editFontSize,setEditFontSize}}>
-      <ChooseTextColor.Provider value={{chooseTextColor,setChooseTextColor}}>
-      <FontFamily.Provider value={{fontFamily,setFontFamily}}>
+      
       <DataImageTag.Provider  value={{dataImageTag,setDataImageTag}}>
       <Logo.Provider value={{logo,setLogo}}>
       <EditLogoColor.Provider value={{editLogoColor,setEditLogoColor}}>
-            <Container className='p-2 h-[100%] w-[99%]'>
-              <Panel weight={2} className="p-1">
+            <Container className=' h-[100%] w-[100%]'>
+              <Panel weight={2} className="w-[100%]">
                 <AddMenuBar 
                 handleOnClick={handleOnClick}
                 handleOnAddLogo={handleOnAddLogo}
@@ -86,11 +79,6 @@ export default function EditMemeMain() {
       </EditLogoColor.Provider>
       </Logo.Provider>
       </DataImageTag.Provider>
-      </FontFamily.Provider>   
-      </ChooseTextColor.Provider>
-      </EditFontSize.Provider>
-      </EditTextBoxSize.Provider>
-      </EditTextBoxColor.Provider>
       </Data.Provider>
       </ConstraintsRef.Provider>
       </PictureStatus.Provider>
