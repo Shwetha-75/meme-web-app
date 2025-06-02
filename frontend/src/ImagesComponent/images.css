@@ -1,0 +1,34 @@
+
+
+.container--images--tag::-webkit-scrollbar {
+  width: 8px;
+
+}
+ 
+.container--images--tag::-webkit-scrollbar-track {
+  background: black;
+  box-shadow: inset 0 0 6px rgba(48, 48, 52, 0.3);
+}
+.container--images--tag::-webkit-scrollbar-thumb {
+  backdrop-filter: blur(13px);
+  background: #434242;
+  border:none;
+  border-radius: 100px;
+}
+
+.image--tag--each{
+    cursor:pointer;
+    border:2px solid transparent;
+    opacity:0.6;
+
+}
+.image--tag--each:hover{
+   transition:0.9s;
+   border:2px solid rgba(147, 143, 143, 0.76);  
+   opacity:1;
+}
+.image--tag--each--active{
+   transition:0.9s;
+   border:2px solid rgba(147, 143, 143, 0.46);
+   opacity:1;
+}

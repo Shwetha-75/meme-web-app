@@ -1,0 +1,6 @@
+GET http://localhost:3076/generate-token/shwetha
+
+###
+
+GET http://localhost:3076/validate-token 
+AUTHORIZATION eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoiMjAyNS0wNC0xMVQwNDo0NDozMS44ODVaIiwidXNlcm5hbWUiOiJzaHdldGhhIiwiaWF0IjoxNzQ0MzQ2NjcxfQ.tEDY5qgF92xldDqQ_qO7zm1gkFyfxvwSQWF8TpziIVc 

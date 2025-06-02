@@ -1,0 +1,32 @@
+input[type='range']::-webkit-slider-runnable-track{
+    background-color:slategray;
+    height:1px;
+    outline:none;
+    border:none;
+}
+input[type='range']:focus{
+     height:1px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  background: white;
+  margin-top: -6px; 
+}
+
+/*  
+For Fire Fox  */
+input[type="range"]::-moz-range-track {
+    background-color:slategray;
+    height:1px;
+    outline:none;
+    border:none;
+}
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  background: white;
+  margin-top: -6px; 
+}

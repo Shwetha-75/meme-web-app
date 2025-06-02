@@ -3,6 +3,7 @@ import Card from './Card';
 import SelectedImage from './UseContextImage';
 import { MemeGenerate } from '../App';
 import FormComp from './FormComp';
+import axios from 'axios';
 // import { saveAs } from 'file-saver';
 // creating an use context to store the value of the image 
 // import Draggable from './DraggableComponent/Draggable';
@@ -33,13 +34,30 @@ export default function Main() {
     localStorage.setItem('selectedImage',JSON.stringify(selectedImage))
    })
 
+  const handleOnClick=(e)=>{
+       try{
+        const response = axios.get("http://localhost:9000/landing");
+        console.log(response);
+
+
+       }catch(error){
+
+       }
+  }
+
   return (
     <SelectedImage.Provider  value={{selectedImage,setSelectedImage}}>
+ <div>
+        <p onClick={handleOnClick}>Hello</p>
+    </div>
+      
     <div className='w-[90%] ml-[5%] relative'>
         <Card/>
         
   <FormComp/>      
     </div>
+
+   
     { memeImage && <div className="overlay---display">
       <h1>Generating Image......</h1>
     </div>

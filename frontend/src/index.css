@@ -2,13 +2,28 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; 
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 1rem !important;
+  font-family:  "Noto Serif", serif !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 *{
     font-family: "Alice", serif;
     
-}
-
-html{
-    background: rgb(21,21,21);
 }
 
 
@@ -16,10 +31,9 @@ html{
 .outer-border {
     position: relative;
     border: none;
-    width: 60%;
-    height: 60vh;
-    margin-left: 20%;
+    height:100%;
     overflow: hidden;
+    padding:0;
 }
 
 .container {
@@ -70,6 +84,7 @@ html{
  .image--tag--meme--active{
     transition: 1s;
     opacity: 0.2;
+    border:none;
  }
 
  .image--tag--meme--deactive{
@@ -135,10 +150,6 @@ html{
 
 @media only screen and (max-width : 600px){
 
-    html{
-
-        background: rgb(21,21,21);
-    }
     
     .overlay--display--register{
         height:100%;
@@ -157,7 +168,7 @@ html{
     
     .register---display---tag{
         width:96%; 
-        height:80%;
+        height:60%;
         backdrop-filter: blur(15px);
         display:flex;
         flex-direction: column;
@@ -210,11 +221,7 @@ html{
  }
  
  
- html{
-
-    background: rgb(21,21,21);
-}
-
+ 
 
  /* .text--display{
      opacity: 0;
@@ -276,7 +283,7 @@ html{
 
 .register---display---tag{
     width:96%; 
-    height:80%;
+    height:60%;
     backdrop-filter: blur(15px);
     display:flex;
     flex-direction: column;
@@ -288,7 +295,7 @@ html{
   .input--element--outer--div--tag{
     width:80%;
      border:2px solid rgb(87, 87, 87);
-      padding:20px;
+      padding:10px;
 }
 .input--element{ 
     width:100%;
@@ -323,11 +330,7 @@ html{
 @media only screen and (min-width : 768px){
 
     
-    html{
-
-        background: rgb(21,21,21);
-    }
-
+ 
     .overlay--display--register{
         height:100%;
         position:fixed;
@@ -345,7 +348,7 @@ html{
     
     .register---display---tag{
         width:96%; 
-        height:80%;
+        height:60%;
         backdrop-filter: blur(15px);
         display:flex;
         flex-direction: column;
@@ -392,10 +395,7 @@ html{
 @media only screen and (min-width : 992px){
 
    
-    html{
-
-        background: rgb(21,21,21);
-    }
+    
 
     .overlay--display--register{
         height:100%;
@@ -426,20 +426,20 @@ html{
     .input--element--outer--div--tag{
 
         width:50%;
-  border:2px solid rgb(87, 87, 87);
-  padding:20px;
-} 
+        border:2px solid rgb(87, 87, 87);
+         padding:20px;
+    } 
 
-.input--element{ 
-    width:100%;
-   
-   
-    font-size: 1.2rem;
-    color:white;
-    outline:none;
-  
-    background-color: transparent;
-}
+    .input--element{ 
+        width:100%;
+       
+       
+        font-size: 1.2rem;
+        color:white;
+        outline:none;
+      
+        background-color: transparent;
+    }
 .input--element--button{
     width:20%;
     margin-top:5%;
@@ -458,15 +458,42 @@ html{
     
     background-color: rgba(10, 10, 10, 0.786);
 }
+
+
+.header--tag--register{
+    
+    font-size:3rem;
+ 
+ }
+ 
+
+ 
+ .header--tag--main--page{
+     font-size: 3.5rem;
+     font-weight: bolder;
+     font-family: "Noto Serif", serif;
+     background: radial-gradient(circle, #047bb6 2%, #047bb6 11%, #047bb6 10%);
+     color: transparent;
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ 
+ }
+ 
+ .divider--tag--main{
+    height:60%;
+    width:5px;
+    background: radial-gradient(circle, #047bb6 2%, #047bb6 11%, #047bb6 10%);
+
+
+}
+
+ 
 }
 @media only screen and ( min-width: 1220px){
 
   
-    html{
-
-        background: rgb(21,21,21);
-    }
-
+    
     .overlay--display--register{
         height:100%;
         position:fixed;
@@ -481,50 +508,50 @@ html{
         right:0;
         bottom:0;
     }
-    
-    .register---display---tag{
-        width:60%; 
-        height:80%;
-        backdrop-filter: blur(15px);
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border:2px solid rgba(112, 124, 129, 0);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.611), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    .divider--tag--main{
+        height:60%;
+        width:5px;
+        background: radial-gradient(circle, #047bb6 2%, #047bb6 11%, #047bb6 10%);
     }
-    .input--element--outer--div--tag{
-     border:2px solid rgb(87, 87, 87);
-      padding:20px;
-     }
     
-     .input--element{ 
-    width:100%;
-   
-   
-    font-size: 1.2rem;
-    color:white;
-    outline:none;
-  
-    background-color: transparent;
-}
-.input--element--button{
-    width:20%;
-    margin-top:5%;
-    height:65px;
-    font-size: 1rem;
-    color:white;
-    outline:none;
-    cursor:pointer;
-    border:none;
-    border-radius:10px;
-    background-color: rgba(7, 7, 7, 0.479);
+
 }
 
-.input--element--button:hover{
-    transition: 1s;
+@media only screen and ( min-width: 2000px){
+    .divider--tag--main{
+        height:60%;
+        width:5px;
+        background: radial-gradient(circle, #047bb6 2%, #047bb6 11%, #047bb6 10%);
+    }
     
-    background-color: rgba(10, 10, 10, 0.786);
-}
 }
 
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+ display: none;
+}
+
+
+
+html::-webkit-scrollbar {
+  width: 5px;
+
+}
+ 
+html::-webkit-scrollbar-track {
+  background: black;
+  box-shadow: inset 0 0 6px rgba(48, 48, 52, 0.3);
+}
+html::-webkit-scrollbar-thumb {
+  backdrop-filter: blur(13px);
+  background: #434242;
+  border:none;
+  border-radius: 100px;
+}
+
+html {
+  background-color: #02060a;
+  color: #f8fafc;
+ 
+}

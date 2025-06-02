@@ -1,0 +1,277 @@
+@media only screen and (min-width: 992px){
+    
+    .form--tag--main{
+        height:60%;
+        width:45%;  
+        display: flex;
+        flex-direction: column;
+        
+        align-items: center;
+        
+    }
+    .form---tag---login{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap:1.2rem;
+    }
+
+    .input--email--container {
+        position: relative;
+        display: inline-block;
+        width: 75%;
+        
+    }
+    .hidden--toggle--button{
+        cursor:pointer ;
+    }
+    .input--tag--login--email {
+        background-color: transparent;
+        color: white;
+        font-size: 1.2rem;
+        font-family: "Noto Serif", serif;
+        width: 100%;
+        border: 2px solid rgba(128, 128, 128, 0.264);
+        transition: 1s;
+        position: relative;
+        box-sizing: border-box;
+        height:55px;
+	    letter-spacing: 1px;
+        z-index: 1;
+        text-align: center;
+    }
+    
+    .input--tag--login--email:focus {
+        outline: none;
+        transition: 1s;
+        border-left:2px solid #082d52;
+        border-right:2px solid #082d52;
+    }
+
+    .login--main--tag{
+        top:0;
+        width:100%;
+        margin-top:-100px;
+    }
+    
+    /* ----------------------------------------- */
+    .input--tag--login--email~.focus-border:before,
+    .input--tag--login--email~.focus-border:after {
+    content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #082d52;
+    transition: 1s;
+}
+
+.input--tag--login--email~.focus-border:after {
+    top: auto;
+	bottom: 0;
+	left: auto;
+	right: 0;
+    background-color: #082d52;
+}
+
+.input--tag--login--email~.focus-border i:before,
+.input--tag--login--email~.focus-border i:after {
+    content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 2px;
+	height: 0;
+	background-color: #082d52;
+    transition: 1s;
+}
+
+.input--tag--login--email~.focus-border i:after {
+    left: auto;
+	right: 0;
+	top: auto;
+    background-color: #082d52;
+	bottom: 0;
+}
+
+.input--tag--login--email:focus~.focus-border:before,
+.input--tag--login--email:focus~.focus-border:after {
+    width: 100%;
+    transition: 1s;
+    background-color: #082d52;
+}
+
+.input--tag--login--email:focus~.focus-border i:before,
+.input--tag--login--email:focus~.focus-border i:after {
+	height: 100%;
+    transition: 1s;
+    background-color: #082d52;
+}
+
+/* -------------------------------------------- */
+.label--tag--email-login{
+    
+    width: 75%;
+    color:#ffffff;
+    padding:1%;
+    text-align: left;
+    font-size:1.2rem
+    
+}
+.container--tag--email{
+    margin-top:5%; 
+}
+.div--tag--login--email{
+ 
+    width:75%;
+   
+    z-index:-999;
+}
+.btn--tag--login--div{
+    width:100%;
+    display:flex;
+    justify-content: space-evenly;
+   margin-top:5%;
+}
+
+
+.btn--tag--login{
+    color:rgba(255, 255, 255, 0.893);
+    width:20%;
+    padding:10px;
+    border:2px solid #047bb680;
+        font-size:1.2rem;
+    border-radius: 100px;
+}
+.authentication--services--tag{
+    display: flex;
+    margin-top:10%;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    height:300px;
+}
+.authentication--services--tag>ul>li{
+    color:white;
+    text-align: center;
+    border: 2px solid #047bb680;
+    border-radius: 100px;
+    padding:10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.authentication--services--tag>ul>li:hover{
+    transition: 0.6s;;
+  background-color:#0990d380; ;
+}
+.authentication--services--tag>ul{
+    color:white;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    height:100%;
+}
+
+/* .div---tag---register---overlay{
+    
+    position: fixed;
+    width:75%;
+    height:100%;    
+    background-color: rgb(4, 4, 4);;
+
+} */
+
+
+}
+
+
+
+@media only screen and (min-width: 1220px){
+    .login---display---tag{
+        width:60%; 
+        height:80%;
+        backdrop-filter: blur(15px);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border:2px solid rgba(112, 124, 129, 0);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.611), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }
+    .input--element--outer--div--tag{
+     border:2px solid rgb(87, 87, 87);
+      padding:10px;
+      width:100%;
+     }
+    
+    .input--element{ 
+        width:100%;
+        font-size: 1.2rem;
+        color:white;
+        outline:none;
+      
+        background-color: transparent;
+    }
+    .input--element--button{
+        width:20%;
+        margin-top:5%;
+        height:40px;
+        font-size: 1rem;
+        color:white;
+        outline:none;
+        cursor:pointer;
+        border:none;
+        border-radius:10px;
+        background-color: rgba(255, 255, 255, 0.479);
+    }
+    .google--image--tag{
+        width:20px; 
+        height:25px;
+   }
+    .input--element--button:hover{
+        transition: 1s;
+        
+        background-color: rgba(10, 10, 10, 0.786);
+    }
+    .label--tag--login{
+        margin-top:-0.76%;
+        position:fixed;
+        color: rgb(255, 255, 255);
+        margin-left:2%;
+        padding:0.05%;
+        background-color: black;
+    }
+
+    .div---tag---login---overlay{
+        background-color: #02060a3c;
+        backdrop-filter: blur(1px);
+        width:45%;  
+        height:100%;
+        position: fixed !important;
+        z-index: 9999;
+    }
+}
+
+@media only screen and ( min-width: 2000px){
+    
+    .label--tag--login{
+        margin-top:-0.76%;
+        position:fixed;
+        color: white;
+        margin-left:2%;
+        padding:3px;
+        background-color: black;
+        z-index:1;
+    }
+
+}
+
+.hidden--toggle--button{
+    cursor:pointer ;
+}
+

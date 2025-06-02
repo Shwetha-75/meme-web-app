@@ -31,13 +31,11 @@ export default function FormComp() {
   const [data,setData]=React.useState([]);
   const [selectedTag,setSelectedTag]=React.useState('');
   const [pictureStatus,setPictureStatus]=React.useState(true);
-  
+    
   const [pictureOverlay,setPictureOverlay]=React.useState(data.length!==0);
 
 
   function handleOnClick(){
-
-   
     setData(prev=>{
       let temp=nanoid();
       return [...prev,{
@@ -48,9 +46,6 @@ export default function FormComp() {
             status:false
       }]
     });
-
-
-
   }
   
   // creating the text for each input field 
@@ -70,6 +65,8 @@ export default function FormComp() {
   const handleOnClickDraggableElement=(id)=>{
         setSelectedTag(id);
   }
+
+
   const handleOnChangeInputTextOnImage=(e,id)=>{
          e.preventDefault();
          let val=e.target.value;
@@ -128,14 +125,14 @@ export default function FormComp() {
 
   const handleOnClickRemove=(id)=>{
      const updateData=data.filter((item)=> item.id!==id)
-
-    setData(updateData);
+     setData(updateData);
 
   }
+
   const [image,takeScreenShot]=useScreenshot({
     type:"image/jpeg",
     quality:1.0
-})
+   })
 
   
   const selectedImage=React.useContext(SelectedImage);
@@ -236,14 +233,10 @@ export default function FormComp() {
        if(pictureStatus===false){
         const download=(image,{name="img",extension="jpg"}={})=>{
                 console.log("Downloading Image....")
-             
-                
                 const a=document.createElement("a");
                 a.href=image;
                 a.download=createFileName(extension,name);
                 a.click();
-                 
-              
           }; 
           takeScreenShot(constraintsRef?.current).then(download);
           setPictureStatus(true);
@@ -301,10 +294,9 @@ export default function FormComp() {
 
   <div className="justify-center mt-[5%]">
         <button 
-   
-   id="btn--tag--download"
-            onClick={handleDownload}
-           className="p-[10px] bg-sky-500 text-white rounded">
+          id="btn--tag--download"
+          onClick={handleDownload}
+          className="p-[10px] bg-sky-500 text-white rounded">
             Download
           </button>
         </div>

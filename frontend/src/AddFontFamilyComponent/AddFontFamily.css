@@ -1,0 +1,19 @@
+.arrow--tag--before{
+    transition:1.3s;
+}
+.arrow--tag--after{
+    transition:1.3s;
+    transform:rotate(180deg);
+}
+.font--tag--select {
+    max-height: 0;
+  overflow: hidden;
+  transition: 1.3s;
+
+}
+
+.font--tag--select--active {
+  max-height:500px; 
+  transition:1.3s;
+
+}
