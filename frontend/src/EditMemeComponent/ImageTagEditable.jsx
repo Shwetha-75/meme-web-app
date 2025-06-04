@@ -5,14 +5,14 @@ import PictureStatus from "./PictureStatus";
 import SelectedImage from "../MemeComponent/SelectedImage"
 import ConstraintsRef from "../EditMemeComponent/ConstraintsRef"
 import AddLogoComponent from "../AddLogoComponent/AddLogoComponent";
-
+import SelectedTag from "./SelectedTag";
 
 export default function ImageTagEditable() {
   const {constraintsRef} = React.useContext(ConstraintsRef)
   const {data,setData} = React.useContext(Data);
   const timeOutRef=React.useRef(null);
+  const {setSelectedTag}=React.useContext(SelectedTag);
   const [status,setStatus]=React.useState(true);
-  const [selectedTag,setSelectedTag]=React.useState('');
   const {selectedImage} = React.useContext(SelectedImage);
   const canvasRef=React.useRef(null);
   const imageRef = React.useRef(null);
@@ -73,9 +73,9 @@ const handleOnClickDraggableElement=(id)=>{
     React.useEffect(()=>{
         const element=document.querySelector("#canvas--tag");
         element.addEventListener("mousemove",function(e){
-               let boundry=e.target.getBoundingClientRect();
-               let x_port=e.clientX-boundry.left;
-               let y_port=e.clientY-boundry.top;
+              //  let boundry=e.target.getBoundingClientRect();
+              //  let x_port=e.clientX-boundry.left;
+              //  let y_port=e.clientY-boundry.top;
            
         });
     });
@@ -102,10 +102,11 @@ const handleOnClickDraggableElement=(id)=>{
   
   {/* <Draggable/> */}
 
-  {data?.map((item)=>
+  {data?.map((item,index)=>
       <Draggable
        key={item.id}
        id={item.id}
+       index={index}
        onChange={handleOnChangeInputTextOnImage}
        onRemove={handleOnClickRemove}
        onMouseMove={handleOnMouseMove}

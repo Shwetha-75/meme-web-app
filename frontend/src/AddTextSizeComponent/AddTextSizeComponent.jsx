@@ -26,7 +26,7 @@ export default function AddTextSizeComponent({
             max="50"
             min="1"
             name="editFontSize"
-            className="input--tag--range w-[100%]"
+            className="input--tag--range w-[100%] cursor-pointer"
             onChange={(e)=>{onChangeEditFontSize(id,e.target.value)}}
         />
             

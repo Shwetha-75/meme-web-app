@@ -10,6 +10,7 @@ import PictureStatus from "./PictureStatus";
 import DataImageTag from "../DataImageTag";
 import Logo from './Logo';
 import EditLogoColor from './EditLogoColor';
+import SelectedTag from './SelectedTag';
 const Container = styled.div`
     display:flex;
     gap:2rem;
@@ -27,6 +28,7 @@ export default function EditMemeMain() {
   });
   const [pictureStatus, setPictureStatus] = React.useState(true);
   const constraintsRef = React.useRef(null);
+  const [selectedTag,setSelectedTag]=React.useState('');
   const [editLogoColor,setEditLogoColor] = React.useState('black');
   const [dataImageTag,setDataImageTag] = React.useState([])
   const [logo,setLogo] = React.useState('')
@@ -54,7 +56,7 @@ export default function EditMemeMain() {
       <PictureStatus.Provider value={{ pictureStatus, setPictureStatus }}>
       <ConstraintsRef.Provider value={{ constraintsRef }}>
       <Data.Provider value={{ data, setData }}>
-      
+      <SelectedTag.Provider value={{selectedTag,setSelectedTag}}>
       <DataImageTag.Provider  value={{dataImageTag,setDataImageTag}}>
       <Logo.Provider value={{logo,setLogo}}>
       <EditLogoColor.Provider value={{editLogoColor,setEditLogoColor}}>
@@ -79,6 +81,7 @@ export default function EditMemeMain() {
       </EditLogoColor.Provider>
       </Logo.Provider>
       </DataImageTag.Provider>
+      </SelectedTag.Provider>
       </Data.Provider>
       </ConstraintsRef.Provider>
       </PictureStatus.Provider>

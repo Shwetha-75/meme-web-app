@@ -1,8 +1,8 @@
 import React from 'react'
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-// import { HdrAuto } from '@mui/icons-material';
+
 export default function Draggable(
   {id,
+  index,
   onChange,
   onClick,
   onRemove,
@@ -15,7 +15,6 @@ export default function Draggable(
   fontFamily
 }) {
  
-console.log(pictureStatus)
 
 
 
@@ -197,14 +196,42 @@ React.useEffect(()=>{
     className='container cursor-move' 
     id={`resizable-${id}`} 
     onClick={()=>onClick(id)}>
+      {pictureStatus &&
+      <span className='absolute top-[-20px]'>
+        <h1
+        style={{
+          color:editTextBoxColor
+        }}
+        >Text Box {index+1}</h1>
+      </span>
+      }
+
         <span 
         style={{
            color:editTextBoxColor
         }}
-        className="w-fit flex flex-col items-end absolute  right-5 top-5 cursor-pointer deactivate--delete--button" onClick={()=>onRemove(id)}>
+        className="w-fit flex flex-col items-end cursor-pointer absolute top-[-20px] right-0 cursor-pointer deactivate--delete--button" onClick={()=>onRemove(id)}>
             
        {pictureStatus && 
-       <DeleteForeverIcon />}
+      //  <DeleteForeverIcon />
+      <>
+        <span className="">
+         <svg 
+         xmlns="http://www.w3.org/2000/svg" 
+         height="20px" 
+         viewBox="0 -960 960 960" 
+         width="20px" 
+         fill={editTextBoxColor}>
+          <path 
+          d="m256-200-56-56 224-224-224-224 56-56 
+          224 224 224-224 56 56-224 
+          224 224 224-56 56-224-224-224 
+          224Z"/>
+          </svg>
+          </span>
+      </>
+       
+       }
         
         </span>
         <div className={`border-handle   ${pictureStatus?"top":"top-active"}`} data-border={`top-${id}`} 
