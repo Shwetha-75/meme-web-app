@@ -48,7 +48,7 @@ export default function AddFontFamilyComponent({
       <ul className="grid grid-cols-3 gap-3 mt-[5%]">
         {fontStyles.map((item,index)=>
           <li
-          className="text-center"
+          className="text-center cursor-pointer"
           key={index}
           style={{
             fontFamily:`${item}`,

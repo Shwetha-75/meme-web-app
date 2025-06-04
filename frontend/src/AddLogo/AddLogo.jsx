@@ -17,10 +17,7 @@ const Container = styled.div`
    flex-direction:row;
 
 `
-// const Item =styled.div`
-//    display:flex;
-// `
-export default function AddLogo({handleOnAddLogo,onImage}) {
+export default function AddLogo({handleOnAddLogo}) {
 
   const {dataImageTag}=React.useContext(DataImageTag);
 
@@ -48,35 +45,7 @@ console.log(dataImageTag)
           <AddIcon fontSize="small"/>
         </span>
       </Panel>
-      {/* <Panel  className="flex flex-col gap-[0.6rem]">
-          {dataImageTag.map((item)=>
-              <Panel
-              className="flex flex-row justify-center items-center">
-              <Item className="  w-[40%] text-center">
-                {item.title}
-              </Item>
-              <Item className="relative w-[50%] flex justify-center items-center text-center">
-                <span className="absolute z-0"> 
-                 Change the logo
-               
-                </span>
-                <input
-                type="file"
-                className="relative text-white border border-slate-500"
-                 onChange={(e)=>{
-                   const file = e.target.files[0];
-                  if (file) {
-                  const blobUrl = URL.createObjectURL(file)
-                  onImage(item.id,blobUrl)
-                  }
-                
-                }}
-                />
-              </Item>
-              </Panel>
-          )}
-      </Panel> */}
-   
+     
     </Container>
   )
 }
