@@ -1,13 +1,21 @@
 import React from 'react'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import "./addlogo.css";
-import EditLogoColor from "../EditMemeComponent/EditLogoColor";
 // import Meme from "./Meme.png"
 
 // import { HdrAuto } from '@mui/icons-material';
-export default function AddDraggableComponent({ id,title, onRemove, onMouseMove, pictureStatus ,image}) {
+export default function AddDraggableComponent({ 
+    id,
+    title, 
+    index,
+    onRemove, 
+    onMouseMove, 
+    pictureStatus ,
+    image,
+    editLogoBoxColor,
+    editLogoBoxSize 
+}) {
     
-    const {editLogoColor} = React.useContext(EditLogoColor);
 
 
     React.useEffect(() => {
@@ -189,24 +197,51 @@ export default function AddDraggableComponent({ id,title, onRemove, onMouseMove,
             className='logo--container relative logo--cursor-move'
             id={`logo--resizable-${id}`}
         >
-            <span className="w-fit flex flex-col items-end absolute  right-5 top-5 cursor-pointer logo--deactivate--delete--button"
-                onClick={() => onRemove(id)}
-                           style={
-                pictureStatus?{
-                    color:editLogoColor
-                }:{
-                 color:'transparent'
-
-                }
-             }
-            >
-
-
-            </span>
+            {pictureStatus &&
+      <span className='absolute top-[-20px]'>
+        <h1
+        style={{
+          color:editLogoBoxColor
+        }}
+        >Logo {index+1}</h1>
+      </span>
+      }
+            
+           <span 
+        style={{
+           color:editLogoBoxColor
+        }}
+        className="w-fit 
+        flex flex-col 
+        items-end cursor-pointer absolute top-[-20px] right-0 cursor-pointer deactivate--delete--button" 
+        onClick={()=>onRemove(id)}>
+            
+       {pictureStatus && 
+      //  <DeleteForeverIcon />
+      <>
+        <span className="">
+         <svg 
+         xmlns="http://www.w3.org/2000/svg" 
+         height="20px" 
+         viewBox="0 -960 960 960" 
+         width="20px" 
+         fill={editLogoBoxColor}>
+          <path 
+          d="m256-200-56-56 224-224-224-224 56-56 
+          224 224 224-224 56 56-224 
+          224 224 224-56 56-224-224-224 
+          224Z"/>
+          </svg>
+          </span>
+      </>
+       
+       }
+        </span>
             <div className={`logo--border-handle   ${pictureStatus ? "logo--top" : "logo--top-active"}`} data-border={`logo--top-${id}`}
              style={
                 pictureStatus?{
-                    backgroundColor:editLogoColor
+                    backgroundColor:editLogoBoxColor,
+                    heigt:`${editLogoBoxSize}px`
                 }:{
                  backgroundColor:'transparent'
 
@@ -218,7 +253,8 @@ export default function AddDraggableComponent({ id,title, onRemove, onMouseMove,
 
             style={
                 pictureStatus?{
-                    backgroundColor:editLogoColor
+                    backgroundColor:editLogoBoxColor,
+                    height:`${editLogoBoxSize}px`
                 }:{
                    backgroundColor:'transparent'
                 }
@@ -235,31 +271,13 @@ export default function AddDraggableComponent({ id,title, onRemove, onMouseMove,
 
             </div>
 
-            {pictureStatus &&
-                <span
-                style={
-                pictureStatus?{
-                    color:editLogoColor
-                }:{
-                 color:'transparent'
-
-                }
-                 }
-                    className=" absolute top-[-20px] right-0 cursor-pointer w-[3%] h-[3%]"
-                    onClick={() => onRemove(id)}
-                >
-                    <RemoveCircleIcon
-
-                    />
-
-                </span>
-            }
+            
              {pictureStatus && 
              
              <span
              style={
                 pictureStatus?{
-                    color:editLogoColor
+                    color:editLogoBoxColor
                 }:{
                  color:'transparent'
 
@@ -274,7 +292,8 @@ export default function AddDraggableComponent({ id,title, onRemove, onMouseMove,
              
             style={
                 pictureStatus?{
-                    backgroundColor:editLogoColor
+                    backgroundColor:editLogoBoxColor,
+                    width:`${editLogoBoxSize}px`
                 }:{
                    backgroundColor:'transparent'
                 }
@@ -284,7 +303,8 @@ export default function AddDraggableComponent({ id,title, onRemove, onMouseMove,
 
              style={
                 pictureStatus?{
-                    backgroundColor:editLogoColor
+                    backgroundColor:editLogoBoxColor,
+                    width:`${editLogoBoxSize}px`
                 }:{
                    backgroundColor:'transparent'
                 }

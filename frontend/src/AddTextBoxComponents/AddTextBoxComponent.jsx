@@ -40,6 +40,7 @@ export default function AddTextBoxComponent({
   // const handleOnClick=()=>{
   //     setTextBoxDisplay(prev=>!prev)
   // }
+  
   return (
     <Container className={`flex flex-col ${index>0?"mt-[5%]":"mt-[0]"} `}>
         <Panel  className="p-2 flex justify-between">
@@ -54,7 +55,7 @@ export default function AddTextBoxComponent({
               xmlns="http://www.w3.org/2000/svg" 
               height="22px" 
               viewBox="0 -960 960 960" 
-              width="20px" 
+              width="18px" 
               onClick={()=>onChangeTextBoxDisplay(id)} 
               fill="#FFFFFF">
                 <path 
@@ -66,16 +67,12 @@ export default function AddTextBoxComponent({
                 30.5T817-647L290-120H120Zm640-584-56-56 
                 56 56Zm-141 85-28-29 57 57-29-28Z"/>
               </svg>
-                {/* <EditIcon
-                  size="small"
-                  height="20px"
-                  onClick={()=>onChangeTextBoxDisplay(id)} 
-                /> */}
+                
                 <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 height="20px" 
                 viewBox="0 -960 960 960" 
-                width="20px"
+                width="18px"
                 onClick={()=>onRemove(id)} 
                 fill="#FFFFFF">
                   <path 
@@ -93,14 +90,14 @@ export default function AddTextBoxComponent({
               height="24px" 
               viewBox="0 -960 960 960"
               onClick={()=>onChangeTextBoxDisplay(id)} 
-              width="20px" 
+              width="18px" 
               fill="#FFFFFF">
               <path d="M240-440v-80h480v80H240Z"/></svg>
               <svg 
               xmlns="http://www.w3.org/2000/svg" 
               height="20px" 
               viewBox="0 -960 960 960" 
-              width="20px"
+              width="18px"
               onClick={()=>onRemove(id)} 
               fill="#FFFFFF">
                 <path 

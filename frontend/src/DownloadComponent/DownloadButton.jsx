@@ -14,16 +14,7 @@ export default function DownloadButton() {
 
 
   const {pictureStatus,setPictureStatus} = React.useContext(PictureStatus);
-    React.useEffect(()=>{
-      const element=document.querySelector("#canvas--tag");
-      element.addEventListener("mousemove",function(e){
-             let boundry=e.target.getBoundingClientRect();
-             let x_port=e.clientX-boundry.left;
-             let y_port=e.clientY-boundry.top;
-             console.log("Left: "+x_port);
-             console.log("Top: "+y_port); 
-      });
-  });
+   
 
 
     

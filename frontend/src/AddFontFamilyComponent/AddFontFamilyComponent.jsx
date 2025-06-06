@@ -22,10 +22,11 @@ export default function AddFontFamilyComponent({
     setFontFamilyDisplay(prev=>!prev);
   };
 
-  console.log(fontStyles)
   return (
     <Container className="p-2 mt-[5%]">
-      <Panel className="flex justify-between">
+      <Panel 
+        onClick={handleOnClickFontFamily}
+      className="flex cursor-pointer justify-between">
          <h3>Select the Font Style </h3>
          <span className={`cursor-pointer ${fontFamilyDisplay?"arrow--tag--after":"arrow--tag--before"}`}>
         <svg 
@@ -33,7 +34,7 @@ export default function AddFontFamilyComponent({
           height="24px" viewBox="0 -960 960 960" 
           width="24px"
           
-          onClick={handleOnClickFontFamily} 
+         
           fill="#FFFFFF">
             <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
             </svg>
