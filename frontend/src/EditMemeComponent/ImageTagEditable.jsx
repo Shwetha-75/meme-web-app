@@ -93,7 +93,7 @@ const handleOnClickDraggableElement=(id)=>{
     <img
     src={selectedImage?.image}
     ref={imageRef}
-    className={`top-0 left-0  w-[100%] h-[100%] image--tag--meme ${pictureOverlay && data.length!==0?"image--tag--meme--active":"image--tag--meme--deactive"} `}  
+    className={`top-0 left-0  w-[100%] h-[100%] image--tag--meme`}  
     style={{
       border:'none'
     }}

@@ -19,7 +19,6 @@ const Container = styled.div`
 `
 export default function AddLogo({handleOnAddLogo}) {
 
-  const {dataImageTag}=React.useContext(DataImageTag);
 
   const handleOnClickTextBox = ()=>{
     let temp=nanoid();
@@ -28,11 +27,14 @@ export default function AddLogo({handleOnAddLogo}) {
             value:'',
             x_position:0,
             y_position:0,
-            title:`Logo ${dataImageTag.length+1}`,
-            status:false
+           
+            status:false,
+            logoBoxDisplay:true,
+            editLogoBoxColor:'white',
+            editLogoBoxSize:'2',
       })
   }
-console.log(dataImageTag)
+
   return (
     <Container className="w-[100%] flex flex-row  justify-between p-2">
       <Panel className="">

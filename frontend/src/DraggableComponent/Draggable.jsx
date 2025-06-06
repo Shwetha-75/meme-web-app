@@ -210,7 +210,10 @@ React.useEffect(()=>{
         style={{
            color:editTextBoxColor
         }}
-        className="w-fit flex flex-col items-end cursor-pointer absolute top-[-20px] right-0 cursor-pointer deactivate--delete--button" onClick={()=>onRemove(id)}>
+        className="w-fit 
+        flex flex-col 
+        items-end cursor-pointer absolute top-[-20px] right-0 cursor-pointer deactivate--delete--button" 
+        onClick={()=>onRemove(id)}>
             
        {pictureStatus && 
       //  <DeleteForeverIcon />

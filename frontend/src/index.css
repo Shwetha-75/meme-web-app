@@ -81,16 +81,7 @@ input::-webkit-inner-spin-button {
     background-color: transparent;
  }
 
- .image--tag--meme--active{
-    transition: 1s;
-    opacity: 0.2;
-    border:none;
- }
 
- .image--tag--meme--deactive{
-    transition:1s;
-    opacity:1;
- }
 
  .text-area--tag{
        width:100%;

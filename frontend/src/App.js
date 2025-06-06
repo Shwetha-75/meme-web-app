@@ -6,7 +6,8 @@ import Firebase from "./firebase";
 import LandingPage from "./LandingComponent/LandingPage";
 import LoginMain from "./AuthenticatedLandingComponent/Index";
 import {BrowserRouter,Routes,Route} from "react-router-dom"
-
+import { StyleSheetManager } from 'styled-components';
+import isPropValid from '@emotion/is-prop-valid';
 
 export const SelectedImage=React.createContext(null);
 export const MemeGenerate=React.createContext(false);
@@ -47,6 +48,8 @@ React.useEffect(()=>{
 
   return (
     <>
+     <StyleSheetManager shouldForwardProp={isPropValid}>
+
     <UserStatus.Provider value={{userStatus,setUserStatus}}>
     <MemeGenerate.Provider value={{memeImage,setMemeImage}} >
     <ConstraintsRef.Provider value={{constraintsRef}}>
@@ -74,6 +77,7 @@ React.useEffect(()=>{
     </MemeGenerate.Provider>
     </UserStatus.Provider>
     <Firebase/>
+     </StyleSheetManager>
     </>
   );
 }

@@ -11,7 +11,7 @@ export default function AddTextBoxEditOptions() {
                item.id===id ?
                {
                   ...item,
-                  textBoxDisplay:false
+                  textBoxDisplay:!item.textBoxDisplay
                } : {
                   ...item,
                     textBoxDisplay:true

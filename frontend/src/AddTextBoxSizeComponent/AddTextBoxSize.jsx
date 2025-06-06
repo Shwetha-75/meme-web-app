@@ -22,7 +22,7 @@ export default function AddTextBoxSize({
   return (
     <Container className="w-[100%] p-2  ">
     <label className="text-white p-3">
-     Text Box Border: {editTextBoxSize}
+     Box Border: {editTextBoxSize}
     </label>
       <input
       type="range"

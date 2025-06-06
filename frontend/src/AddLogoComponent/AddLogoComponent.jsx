@@ -9,19 +9,6 @@ export default function AddLogoComponent(){
     const {dataImageTag,setDataImageTag} = React.useContext(DataImageTag);
   
 
-    // const handleOnClickAddTag=()=>{
-         
-    //    setDataImageTag([
-    //     ...dataImageTag,
-    //     {
-    //         id:nanoid(),
-    //         value:'',
-    //         x_position:0,
-    //         y_position:0,
-    //         status:false
-    //     }
-    //    ])
-    // }
     const handleOnRemove = (id)=>{
         setDataImageTag(dataImageTag.filter((item)=> item.id!==id))
     }
@@ -40,7 +27,7 @@ export default function AddLogoComponent(){
     }
     return (
         <>
-        {dataImageTag?.map((item)=>
+        {dataImageTag?.map((item,index)=>
          <AddDraggableComponent
            key={item.id}
            id={item.id}
@@ -48,7 +35,11 @@ export default function AddLogoComponent(){
            onRemove={handleOnRemove}
            onMouseMove={handleOnMouseMove}
            pictureStatus={pictureStatus}
+           logoBoxDisplay={item.logoBoxDisplay}
+           editLogoBoxColor={item.editLogoBoxColor}
+           editLogoBoxSize={item.editLogoBoxSize}
            image={item.value}  
+           index={index}
          />
     
     )}
