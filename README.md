@@ -11,6 +11,7 @@
      <li>Project Overview</li>
     <li>Architecture</li>
     <li>Tech Stack</li>
+    <li>Project Code</li>
     <li>Guidelines to deploy on local</li>
     <li>Conclusion</li>
   </ol>
@@ -49,7 +50,18 @@
   ---
 
   <div>
-    <h3>6. Guidelines to deploy on local </h3>
+      <h3>4. Project Code</h3>
+
+  |Services | Code Link |
+  |------- |------|
+  |Frontend| <a href="https://github.com/Shwetha-75/Meme-Generator-View.git" target="_blank">Link</a> |
+  |Backend | <a href="https://github.com/Shwetha-75/Meme-Generator-Backend.git" target="_blank">Link</a> |
+    
+  </div>
+
+  ---
+  <div>
+    <h3>5. Guidelines to deploy on local </h3>
   </div>
    <p>Clone the repository</p>
    
@@ -78,7 +90,7 @@
 
   ---
   
-  <h3>Conclusion</h3>
+  <h3>6. Conclusion</h3>
   <div>
     <ul>
       <li>Contributors : Shwetha K (Design, Develeopment, Deployment)</li>
