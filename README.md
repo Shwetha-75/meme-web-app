@@ -70,7 +70,10 @@
    <p>For Backend services install node js</p>
    
    ~~~
-    npm i
+    npm init
+   ~~~
+   ~~~
+    npm i express cors nodemon 
    ~~~
 
   ---
